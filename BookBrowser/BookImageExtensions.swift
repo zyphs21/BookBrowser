@@ -16,13 +16,13 @@ extension UIImage {
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         
-        drawInRect(CGRectMake(0, 0, size.width, size.height))
+        draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
         
-        return newImage
+        return newImage!
     }
     
 }
@@ -34,7 +34,7 @@ extension UIImageView {
         
         let URL = NSURL(string: URLString)
         
-        let cacheKey = SDWebImageManager.sharedManager().cacheKeyForURL(URL) ?? ""
+        let cacheKey = SDWebImageManager.sharedManager().cacheKeyForURL(URL as! URL) ?? ""
         
         var tempImage = UIImage()
         
@@ -45,7 +45,7 @@ extension UIImageView {
                 cacheImage = cacheImage.resizeImageWithSize(size)
             }
         }else{
-            SDWebImageDownloader.sharedDownloader().downloadImageWithURL(URL, options: .AllowInvalidSSLCertificates, progress: nil, completed: { (image, data, error, result) -> Void in
+            SDWebImageDownloader.sharedDownloader().downloadImageWithURL(URL as! URL, options: .AllowInvalidSSLCertificates, progress: nil, completed: { (image, data, error, result) -> Void in
                 
                 if (image != nil && image.size.width > width) {
                     let size = CGSizeMake(width, image.size.height * (width / image.size.width))
