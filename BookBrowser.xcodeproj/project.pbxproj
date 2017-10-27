@@ -10,8 +10,6 @@
 		9AB03CAEC8883DF017B618B7 /* Pods_BookBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D9C51E68902677EBDDE9F6 /* Pods_BookBrowser.framework */; };
 		C0237CA81FA2E0A200856C1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0237C7F1FA2E0A200856C1C /* Assets.xcassets */; };
 		C0237CA91FA2E0A200856C1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0237C801FA2E0A200856C1C /* LaunchScreen.storyboard */; };
-		C0237CAA1FA2E0A200856C1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0237C821FA2E0A200856C1C /* Main.storyboard */; };
-		C0237CAB1FA2E0A200856C1C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0237C851FA2E0A200856C1C /* Info.plist */; };
 		C0237CAC1FA2E0A200856C1C /* MenuTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C891FA2E0A200856C1C /* MenuTransitionManager.swift */; };
 		C0237CAD1FA2E0A200856C1C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C8A1FA2E0A200856C1C /* Review.swift */; };
 		C0237CAE1FA2E0A200856C1C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C8B1FA2E0A200856C1C /* BookViewModel.swift */; };
@@ -31,7 +29,6 @@
 		C0237CBD1FA2E0A200856C1C /* BookSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA11FA2E0A200856C1C /* BookSearchController.swift */; };
 		C0237CBE1FA2E0A200856C1C /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA21FA2E0A200856C1C /* BookCell.swift */; };
 		C0237CBF1FA2E0A200856C1C /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA31FA2E0A200856C1C /* BookDetailViewController.swift */; };
-		C0237CC01FA2E0A200856C1C /* UITableView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA41FA2E0A200856C1C /* UITableView+MJRefresh.m */; };
 		C0237CC11FA2E0A200856C1C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA51FA2E0A200856C1C /* TabBarController.swift */; };
 		C0237CC21FA2E0A200856C1C /* DetailBookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA61FA2E0A200856C1C /* DetailBookHeaderView.swift */; };
 		C0237CC31FA2E0A200856C1C /* DetailBookHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0237CA71FA2E0A200856C1C /* DetailBookHeaderView.xib */; };
@@ -42,7 +39,6 @@
 		C0117A861CB79CE3004A0265 /* BookBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0237C7F1FA2E0A200856C1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0237C811FA2E0A200856C1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C0237C831FA2E0A200856C1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0237C841FA2E0A200856C1C /* BookBrowser-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BookBrowser-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0237C851FA2E0A200856C1C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0237C891FA2E0A200856C1C /* MenuTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTransitionManager.swift; sourceTree = "<group>"; };
@@ -55,7 +51,6 @@
 		C0237C941FA2E0A200856C1C /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		C0237C961FA2E0A200856C1C /* CommentWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentWebViewController.swift; sourceTree = "<group>"; };
 		C0237C971FA2E0A200856C1C /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
-		C0237C981FA2E0A200856C1C /* UITableView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MJRefresh.h"; sourceTree = "<group>"; };
 		C0237C991FA2E0A200856C1C /* BookImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookImageExtensions.swift; sourceTree = "<group>"; };
 		C0237C9B1FA2E0A200856C1C /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		C0237C9C1FA2E0A200856C1C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -65,7 +60,6 @@
 		C0237CA11FA2E0A200856C1C /* BookSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSearchController.swift; sourceTree = "<group>"; };
 		C0237CA21FA2E0A200856C1C /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		C0237CA31FA2E0A200856C1C /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
-		C0237CA41FA2E0A200856C1C /* UITableView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MJRefresh.m"; sourceTree = "<group>"; };
 		C0237CA51FA2E0A200856C1C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C0237CA61FA2E0A200856C1C /* DetailBookHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBookHeaderView.swift; sourceTree = "<group>"; };
 		C0237CA71FA2E0A200856C1C /* DetailBookHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailBookHeaderView.xib; sourceTree = "<group>"; };
@@ -125,7 +119,6 @@
 			children = (
 				C0237C7F1FA2E0A200856C1C /* Assets.xcassets */,
 				C0237C801FA2E0A200856C1C /* LaunchScreen.storyboard */,
-				C0237C821FA2E0A200856C1C /* Main.storyboard */,
 				C0237C841FA2E0A200856C1C /* BookBrowser-Bridging-Header.h */,
 				C0237C851FA2E0A200856C1C /* Info.plist */,
 			);
@@ -169,8 +162,6 @@
 		C0237C8F1FA2E0A200856C1C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C0237C981FA2E0A200856C1C /* UITableView+MJRefresh.h */,
-				C0237CA41FA2E0A200856C1C /* UITableView+MJRefresh.m */,
 				C0237C9B1FA2E0A200856C1C /* RatingView.swift */,
 			);
 			path = Common;
@@ -283,7 +274,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = hanson;
 				TargetAttributes = {
 					C0117A851CB79CE3004A0265 = {
@@ -315,8 +306,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0237CAB1FA2E0A200856C1C /* Info.plist in Resources */,
-				C0237CAA1FA2E0A200856C1C /* Main.storyboard in Resources */,
 				C0237CA81FA2E0A200856C1C /* Assets.xcassets in Resources */,
 				C0237CA91FA2E0A200856C1C /* LaunchScreen.storyboard in Resources */,
 				C0237CC31FA2E0A200856C1C /* DetailBookHeaderView.xib in Resources */,
@@ -432,7 +421,6 @@
 				C0237CB21FA2E0A200856C1C /* AppDelegate.swift in Sources */,
 				C0237CBF1FA2E0A200856C1C /* BookDetailViewController.swift in Sources */,
 				C0237CB81FA2E0A200856C1C /* MenuTableViewCell.swift in Sources */,
-				C0237CC01FA2E0A200856C1C /* UITableView+MJRefresh.m in Sources */,
 				C0237CB91FA2E0A200856C1C /* FirstPageViewController.swift in Sources */,
 				C0237CB51FA2E0A200856C1C /* ReviewTableViewCell.swift in Sources */,
 				C0237CAE1FA2E0A200856C1C /* BookViewModel.swift in Sources */,
@@ -451,14 +439,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		C0237C821FA2E0A200856C1C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C0237C831FA2E0A200856C1C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -471,13 +451,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -517,13 +505,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -542,6 +538,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -561,7 +558,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.hanson.BookBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "BookBrowser/BookBrowser-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "BookBrowser/SupportFiles/BookBrowser-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -581,7 +578,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.hanson.BookBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "BookBrowser/BookBrowser-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "BookBrowser/SupportFiles/BookBrowser-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

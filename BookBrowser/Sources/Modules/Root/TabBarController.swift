@@ -13,13 +13,32 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        setUpView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
+}
+
+extension TabBarController {
+    
+    private func setUpView() {
+        let home = UIViewController()
+        addViewController(home, title: "", imageName: "icon-book")
+        let discover = UIViewController()
+        addViewController(discover, title: "", imageName: "icon-search")
+        let me = UIViewController()
+        addViewController(me, title: "", imageName: "icon-profile")
+    }
+    
+    private func addViewController(_ controller: UIViewController, title: String, imageName: String) {
+        let nav = UINavigationController(rootViewController: controller)
+        addChildViewController(nav)
+        controller.tabBarItem = UITabBarItem(title: title, image: UIImage(named: imageName), tag: 1)
+        controller.tabBarItem.tag = childViewControllers.count - 1
+        print(childViewControllers.count - 1)
+    }
 }
