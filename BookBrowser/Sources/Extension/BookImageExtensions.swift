@@ -44,7 +44,7 @@ extension UIImageView {
                 let size = CGSizeMake(width, cacheImage.size.height * (width / cacheImage.size.width))
                 cacheImage = cacheImage.resizeImageWithSize(size)
             }
-        }else{
+        } else {
             SDWebImageDownloader.sharedDownloader().downloadImageWithURL(URL as! URL, options: .AllowInvalidSSLCertificates, progress: nil, completed: { (image, data, error, result) -> Void in
                 
                 if (image != nil && image.size.width > width) {
