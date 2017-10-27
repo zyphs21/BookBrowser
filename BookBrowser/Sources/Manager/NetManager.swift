@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import AFNetworking
-import MBProgressHUD
+
+
 import Toast
 
 struct NetManager{

@@ -10,7 +10,6 @@ target 'BookBrowser' do
     pod 'SVProgressHUD'
     pod 'Fabric'
     pod 'Crashlytics'
-    pod 'MBProgressHUD', '~> 1.0.0'
     pod 'MJRefresh'
     pod 'FMDB'
     pod 'Toast'
