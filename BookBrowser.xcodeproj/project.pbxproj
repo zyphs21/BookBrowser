@@ -33,6 +33,7 @@
 		C0237CC21FA2E0A200856C1C /* DetailBookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA61FA2E0A200856C1C /* DetailBookHeaderView.swift */; };
 		C0237CC31FA2E0A200856C1C /* DetailBookHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0237CA71FA2E0A200856C1C /* DetailBookHeaderView.xib */; };
 		C0C720341FA334E30023922E /* BasicNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C720331FA334E30023922E /* BasicNavigationViewController.swift */; };
+		C0C720361FA579950023922E /* IdentifierExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C720351FA579950023922E /* IdentifierExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		C0237CA61FA2E0A200856C1C /* DetailBookHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBookHeaderView.swift; sourceTree = "<group>"; };
 		C0237CA71FA2E0A200856C1C /* DetailBookHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailBookHeaderView.xib; sourceTree = "<group>"; };
 		C0C720331FA334E30023922E /* BasicNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationViewController.swift; sourceTree = "<group>"; };
+		C0C720351FA579950023922E /* IdentifierExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierExtension.swift; sourceTree = "<group>"; };
 		C45F233BF8A7055B71BF2C54 /* Pods-BookBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookBrowser/Pods-BookBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		C757167FF94BA38C81A2DD04 /* Pods-BookBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookBrowser/Pods-BookBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				C0237C991FA2E0A200856C1C /* BookImageExtensions.swift */,
+				C0C720351FA579950023922E /* IdentifierExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				C0237CB81FA2E0A200856C1C /* MenuTableViewCell.swift in Sources */,
 				C0237CB91FA2E0A200856C1C /* FirstPageViewController.swift in Sources */,
 				C0237CB51FA2E0A200856C1C /* ReviewTableViewCell.swift in Sources */,
+				C0C720361FA579950023922E /* IdentifierExtension.swift in Sources */,
 				C0237CAE1FA2E0A200856C1C /* BookViewModel.swift in Sources */,
 				C0237CB11FA2E0A200856C1C /* RateStar.swift in Sources */,
 			);
