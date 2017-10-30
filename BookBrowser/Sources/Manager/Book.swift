@@ -6,38 +6,9 @@
 //  Copyright © 2016年 hanson. All rights reserved.
 //
 
-import Foundation
-import UIKit
+import SwiftyJSON
 
 struct Book {
-    
-    let KeyId = "id"
-    let KeyIsbn10 = "isbn10"
-    let KeyIsbn13 = "isbn13"
-    let KeyTitle = "title"
-    let KeyOrigin_title = "origin_title"
-    let KeyAlt_title = "alt_title"
-    let KeySubtitle = "subtitle"
-    let KeyUrl = "url"
-    let KeyAlt = "alt"
-    let KeyImage = "image"
-    let KeyImages = "images"
-    let KeyAuthor = "author"
-    let KeyTranslator = "translator"
-    let KeyPublisher = "publisher"
-    let KeyPubdate = "pubdate"
-    let KeyRating = "rating"
-    let KeyTags = "tags"
-    let KeyBinding = "binding"
-    let KeyPrice = "price"
-    let KeySeries = "series"
-    let KeyPages = "pages"
-    let KeyAuthor_info = "author_info"
-    let KeySummary = "summary"
-    let KeyCatalog = "catalog"
-    let KeyEbook_url = "ebook_url"
-    let KeyEbook_price = "ebook_price"
-    
     var id = ""
     var isbn10 = "" //老的10位图书编码
     var isbn13 = "" //新标准的13位编码
@@ -64,4 +35,34 @@ struct Book {
     var catalog = ""//序言
     var ebook_url = ""
     var ebook_price = ""
+    
+    static func getBookByJson(_ json: JSON) {
+        var book = Book()
+        book.id = json["id"].stringValue
+        book.isbn10 = json["isbn10"].stringValue
+        book.isbn13 = json["isbn13"].stringValue
+        book.title = json["title"].stringValue
+        book.origin_title = json["origin_title"].stringValue
+        book.alt_title = json["alt_title"].stringValue
+        book.subtitle = json["subtitle"].stringValue
+        book.url = json["url"].stringValue
+        book.alt = json["alt"].stringValue
+        book.image = json["image"].stringValue
+//        book.images = json["images"].stringValue
+//        book.author = json["author"].stringValue
+//        book.translator = json["translator"].stringValue
+        book.publisher = json["publisher"].stringValue
+        book.pubdate = json["pubdate"].stringValue
+//        book.rating = json["rating"].stringValue
+//        book.tags = json["tags"].stringValue
+        book.binding = json["binding"].stringValue
+        book.price = json["price"].stringValue
+//        book.series = json["series"].stringValue
+        book.pages = json["pages"].stringValue
+//        book.author_info =json["author_info"].stringValue
+        book.summary = json["summary"].stringValue
+        book.catalog = json["catalog"].stringValue
+        book.ebook_url = json["ebook_url"].stringValue
+        book.ebook_price = json["ebook_price"].stringValue
+    }
 }

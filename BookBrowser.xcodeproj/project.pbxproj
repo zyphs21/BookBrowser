@@ -33,6 +33,9 @@
 		C0237CC31FA2E0A200856C1C /* DetailBookHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0237CA71FA2E0A200856C1C /* DetailBookHeaderView.xib */; };
 		C0C720341FA334E30023922E /* BasicNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C720331FA334E30023922E /* BasicNavigationViewController.swift */; };
 		C0C720361FA579950023922E /* IdentifierExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C720351FA579950023922E /* IdentifierExtension.swift */; };
+		C0DDE1A81FA778D0008DF5FE /* ApiTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */; };
+		C0DDE1AA1FA778F9008DF5FE /* ApiOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */; };
+		C0DDE1AC1FA77971008DF5FE /* BookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1AB1FA77971008DF5FE /* BookApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +68,9 @@
 		C0237CA71FA2E0A200856C1C /* DetailBookHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailBookHeaderView.xib; sourceTree = "<group>"; };
 		C0C720331FA334E30023922E /* BasicNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationViewController.swift; sourceTree = "<group>"; };
 		C0C720351FA579950023922E /* IdentifierExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierExtension.swift; sourceTree = "<group>"; };
+		C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTarget.swift; sourceTree = "<group>"; };
+		C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiOperation.swift; sourceTree = "<group>"; };
+		C0DDE1AB1FA77971008DF5FE /* BookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApi.swift; sourceTree = "<group>"; };
 		C45F233BF8A7055B71BF2C54 /* Pods-BookBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookBrowser/Pods-BookBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		C757167FF94BA38C81A2DD04 /* Pods-BookBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookBrowser/Pods-BookBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +164,9 @@
 				C0237C8C1FA2E0A200856C1C /* Author.swift */,
 				C0237C8D1FA2E0A200856C1C /* Book.swift */,
 				C0237C8E1FA2E0A200856C1C /* RateStar.swift */,
+				C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */,
+				C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */,
+				C0DDE1AB1FA77971008DF5FE /* BookApi.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -413,6 +422,8 @@
 				C0C720341FA334E30023922E /* BasicNavigationViewController.swift in Sources */,
 				C0237CB71FA2E0A200856C1C /* RatingView.swift in Sources */,
 				C0237CAF1FA2E0A200856C1C /* Author.swift in Sources */,
+				C0DDE1AA1FA778F9008DF5FE /* ApiOperation.swift in Sources */,
+				C0DDE1AC1FA77971008DF5FE /* BookApi.swift in Sources */,
 				C0237CBE1FA2E0A200856C1C /* BookCell.swift in Sources */,
 				C0237CB61FA2E0A200856C1C /* BookImageExtensions.swift in Sources */,
 				C0237CB01FA2E0A200856C1C /* Book.swift in Sources */,
@@ -425,6 +436,7 @@
 				C0237CB91FA2E0A200856C1C /* FirstPageViewController.swift in Sources */,
 				C0237CB51FA2E0A200856C1C /* ReviewTableViewCell.swift in Sources */,
 				C0C720361FA579950023922E /* IdentifierExtension.swift in Sources */,
+				C0DDE1A81FA778D0008DF5FE /* ApiTarget.swift in Sources */,
 				C0237CAE1FA2E0A200856C1C /* BookViewModel.swift in Sources */,
 				C0237CB11FA2E0A200856C1C /* RateStar.swift in Sources */,
 			);
