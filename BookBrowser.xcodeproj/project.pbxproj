@@ -12,10 +12,8 @@
 		C0237CA91FA2E0A200856C1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0237C801FA2E0A200856C1C /* LaunchScreen.storyboard */; };
 		C0237CAC1FA2E0A200856C1C /* MenuTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C891FA2E0A200856C1C /* MenuTransitionManager.swift */; };
 		C0237CAD1FA2E0A200856C1C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C8A1FA2E0A200856C1C /* Review.swift */; };
-		C0237CAE1FA2E0A200856C1C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C8B1FA2E0A200856C1C /* BookViewModel.swift */; };
 		C0237CAF1FA2E0A200856C1C /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C8C1FA2E0A200856C1C /* Author.swift */; };
 		C0237CB01FA2E0A200856C1C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C8D1FA2E0A200856C1C /* Book.swift */; };
-		C0237CB11FA2E0A200856C1C /* RateStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C8E1FA2E0A200856C1C /* RateStar.swift */; };
 		C0237CB21FA2E0A200856C1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C911FA2E0A200856C1C /* AppDelegate.swift */; };
 		C0237CB31FA2E0A200856C1C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C941FA2E0A200856C1C /* MenuTableViewController.swift */; };
 		C0237CB41FA2E0A200856C1C /* CommentWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237C961FA2E0A200856C1C /* CommentWebViewController.swift */; };
@@ -47,10 +45,8 @@
 		C0237C851FA2E0A200856C1C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0237C891FA2E0A200856C1C /* MenuTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTransitionManager.swift; sourceTree = "<group>"; };
 		C0237C8A1FA2E0A200856C1C /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
-		C0237C8B1FA2E0A200856C1C /* BookViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		C0237C8C1FA2E0A200856C1C /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		C0237C8D1FA2E0A200856C1C /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		C0237C8E1FA2E0A200856C1C /* RateStar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateStar.swift; sourceTree = "<group>"; };
 		C0237C911FA2E0A200856C1C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0237C941FA2E0A200856C1C /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		C0237C961FA2E0A200856C1C /* CommentWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentWebViewController.swift; sourceTree = "<group>"; };
@@ -160,10 +156,8 @@
 				C0237CA01FA2E0A200856C1C /* NetManager.swift */,
 				C0237C891FA2E0A200856C1C /* MenuTransitionManager.swift */,
 				C0237C8A1FA2E0A200856C1C /* Review.swift */,
-				C0237C8B1FA2E0A200856C1C /* BookViewModel.swift */,
 				C0237C8C1FA2E0A200856C1C /* Author.swift */,
 				C0237C8D1FA2E0A200856C1C /* Book.swift */,
-				C0237C8E1FA2E0A200856C1C /* RateStar.swift */,
 				C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */,
 				C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */,
 				C0DDE1AB1FA77971008DF5FE /* BookApi.swift */,
@@ -437,8 +431,6 @@
 				C0237CB51FA2E0A200856C1C /* ReviewTableViewCell.swift in Sources */,
 				C0C720361FA579950023922E /* IdentifierExtension.swift in Sources */,
 				C0DDE1A81FA778D0008DF5FE /* ApiTarget.swift in Sources */,
-				C0237CAE1FA2E0A200856C1C /* BookViewModel.swift in Sources */,
-				C0237CB11FA2E0A200856C1C /* RateStar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
