@@ -20,15 +20,14 @@ struct ApiOperation {
                           encoding: URLEncoding.default,
                           headers: apiTarget.headers)
             .responseJSON { response in
-//                let resultCode = response.response?.allHeaderFields[XResultCode] as? String
-//                if resultCode == SUCCESS && response.result.isSuccess {
-//                    let json = JSON(response.result.value!)
-//                    result(json)
-//
-//                } else {
-//                    dPrint("VYBasicAPIOperation Error: " + "\(String(describing: resultCode)) " + "\(response.response.debugDescription)")
-//                    result(nil)
-//                }
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    result(json)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    result(nil)
+                }
         }
     }
 }

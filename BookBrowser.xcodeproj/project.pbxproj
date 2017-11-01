@@ -29,6 +29,10 @@
 		C0237CC11FA2E0A200856C1C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA51FA2E0A200856C1C /* TabBarController.swift */; };
 		C0237CC21FA2E0A200856C1C /* DetailBookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA61FA2E0A200856C1C /* DetailBookHeaderView.swift */; };
 		C0237CC31FA2E0A200856C1C /* DetailBookHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0237CA71FA2E0A200856C1C /* DetailBookHeaderView.xib */; };
+		C0A6A66E1FA94E710075CE06 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A6A66D1FA94E710075CE06 /* HomeViewController.swift */; };
+		C0A6A6711FA950190075CE06 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A6A6701FA950190075CE06 /* BookTableViewCell.swift */; };
+		C0A6A6741FA950C30075CE06 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A6A6721FA950C30075CE06 /* BookCollectionViewCell.swift */; };
+		C0A6A6751FA950C30075CE06 /* BookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0A6A6731FA950C30075CE06 /* BookCollectionViewCell.xib */; };
 		C0C720341FA334E30023922E /* BasicNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C720331FA334E30023922E /* BasicNavigationViewController.swift */; };
 		C0C720361FA579950023922E /* IdentifierExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C720351FA579950023922E /* IdentifierExtension.swift */; };
 		C0DDE1A81FA778D0008DF5FE /* ApiTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */; };
@@ -62,6 +66,10 @@
 		C0237CA51FA2E0A200856C1C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C0237CA61FA2E0A200856C1C /* DetailBookHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBookHeaderView.swift; sourceTree = "<group>"; };
 		C0237CA71FA2E0A200856C1C /* DetailBookHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailBookHeaderView.xib; sourceTree = "<group>"; };
+		C0A6A66D1FA94E710075CE06 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C0A6A6701FA950190075CE06 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		C0A6A6721FA950C30075CE06 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0A6A6731FA950C30075CE06 /* BookCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCollectionViewCell.xib; sourceTree = "<group>"; };
 		C0C720331FA334E30023922E /* BasicNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationViewController.swift; sourceTree = "<group>"; };
 		C0C720351FA579950023922E /* IdentifierExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierExtension.swift; sourceTree = "<group>"; };
 		C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTarget.swift; sourceTree = "<group>"; };
@@ -196,8 +204,10 @@
 		C0237C931FA2E0A200856C1C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C0A6A66F1FA94F3C0075CE06 /* View */,
 				C0237CA21FA2E0A200856C1C /* BookCell.swift */,
 				C0237C9D1FA2E0A200856C1C /* FirstPageViewController.swift */,
+				C0A6A66D1FA94E710075CE06 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -238,6 +248,16 @@
 				C0237CA71FA2E0A200856C1C /* DetailBookHeaderView.xib */,
 			);
 			path = Book;
+			sourceTree = "<group>";
+		};
+		C0A6A66F1FA94F3C0075CE06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0A6A6701FA950190075CE06 /* BookTableViewCell.swift */,
+				C0A6A6721FA950C30075CE06 /* BookCollectionViewCell.swift */,
+				C0A6A6731FA950C30075CE06 /* BookCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E327A24D8FE053695BEA76C1 /* Pods */ = {
@@ -313,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0237CA81FA2E0A200856C1C /* Assets.xcassets in Resources */,
+				C0A6A6751FA950C30075CE06 /* BookCollectionViewCell.xib in Resources */,
 				C0237CA91FA2E0A200856C1C /* LaunchScreen.storyboard in Resources */,
 				C0237CC31FA2E0A200856C1C /* DetailBookHeaderView.xib in Resources */,
 			);
@@ -409,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0237CC21FA2E0A200856C1C /* DetailBookHeaderView.swift in Sources */,
+				C0A6A6741FA950C30075CE06 /* BookCollectionViewCell.swift in Sources */,
 				C0237CAC1FA2E0A200856C1C /* MenuTransitionManager.swift in Sources */,
 				C0237CB41FA2E0A200856C1C /* CommentWebViewController.swift in Sources */,
 				C0237CBA1FA2E0A200856C1C /* DiscoverPageViewController.swift in Sources */,
@@ -419,6 +441,7 @@
 				C0DDE1AA1FA778F9008DF5FE /* ApiOperation.swift in Sources */,
 				C0DDE1AC1FA77971008DF5FE /* BookApi.swift in Sources */,
 				C0237CBE1FA2E0A200856C1C /* BookCell.swift in Sources */,
+				C0A6A66E1FA94E710075CE06 /* HomeViewController.swift in Sources */,
 				C0237CB61FA2E0A200856C1C /* BookImageExtensions.swift in Sources */,
 				C0237CB01FA2E0A200856C1C /* Book.swift in Sources */,
 				C0237CBD1FA2E0A200856C1C /* BookSearchController.swift in Sources */,
@@ -430,6 +453,7 @@
 				C0237CB91FA2E0A200856C1C /* FirstPageViewController.swift in Sources */,
 				C0237CB51FA2E0A200856C1C /* ReviewTableViewCell.swift in Sources */,
 				C0C720361FA579950023922E /* IdentifierExtension.swift in Sources */,
+				C0A6A6711FA950190075CE06 /* BookTableViewCell.swift in Sources */,
 				C0DDE1A81FA778D0008DF5FE /* ApiTarget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

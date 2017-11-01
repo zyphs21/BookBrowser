@@ -24,7 +24,7 @@ class TabBarController: UITabBarController {
 extension TabBarController {
     
     private func setUpView() {
-        let home = UIViewController()
+        let home = HomeViewController()
         home.title = "首页"
         addViewController(home, title: "", imageName: "icon-book")
         let discover = UIViewController()
