@@ -18,10 +18,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         tableView = UITableView()
-        tableView.register(UITableViewCell.self)
+        tableView.register(BookTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 40
+        tableView.rowHeight = 120
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.left.right.bottom.equalTo(self.view)
@@ -46,6 +46,7 @@ extension HomeViewController {
         ApiOperation.requestJSON(with: searchTarget) { [weak self] (json) in
             guard let strongSelf = self else { return }
             if let json = json {
+
                 strongSelf.bookList = BookList.getBookList(json: json)
                 strongSelf.tableView.reloadData()
             } else {
@@ -66,8 +67,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.textLabel?.text = bookList.books[indexPath.row].title
+        let cell: BookTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.configureCell(book: bookList.books[indexPath.row])
         return cell
     }
 }
