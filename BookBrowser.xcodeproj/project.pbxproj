@@ -38,6 +38,7 @@
 		C0DDE1A81FA778D0008DF5FE /* ApiTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */; };
 		C0DDE1AA1FA778F9008DF5FE /* ApiOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */; };
 		C0DDE1AC1FA77971008DF5FE /* BookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1AB1FA77971008DF5FE /* BookApi.swift */; };
+		C0FC20F31FB163330087BCDA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC20F21FB163330087BCDA /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTarget.swift; sourceTree = "<group>"; };
 		C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiOperation.swift; sourceTree = "<group>"; };
 		C0DDE1AB1FA77971008DF5FE /* BookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApi.swift; sourceTree = "<group>"; };
+		C0FC20F21FB163330087BCDA /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C45F233BF8A7055B71BF2C54 /* Pods-BookBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookBrowser/Pods-BookBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		C757167FF94BA38C81A2DD04 /* Pods-BookBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookBrowser/Pods-BookBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 				C0237C991FA2E0A200856C1C /* BookImage+Extension.swift */,
 				C0C720351FA579950023922E /* Identifier+Extension.swift */,
 				C092B7A71FB0E05E00445256 /* FileManager+Extension.swift */,
+				C0FC20F21FB163330087BCDA /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				C0D54DF11FB0321B00013E93 /* Layout.swift in Sources */,
 				C0237CAD1FA2E0A200856C1C /* Review.swift in Sources */,
 				C0C720341FA334E30023922E /* BasicNavigationViewController.swift in Sources */,
+				C0FC20F31FB163330087BCDA /* UIColor+Extension.swift in Sources */,
 				C0237CB71FA2E0A200856C1C /* RatingView.swift in Sources */,
 				C0237CAF1FA2E0A200856C1C /* Author.swift in Sources */,
 				C0DDE1AA1FA778F9008DF5FE /* ApiOperation.swift in Sources */,

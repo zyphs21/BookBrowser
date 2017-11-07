@@ -19,6 +19,7 @@ class BookTableViewCell: UITableViewCell {
     var rateView: UIView!
     var rate: UILabel!
     var holdView: UIView!
+    var shadowView: UIView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,21 +43,31 @@ extension BookTableViewCell {
     }
     
     private func setUp() {
-        holdView = UIView()
+        shadowView = UIView()
             .hs.adhere(toSuperView: contentView)
             .hs.config({ (view) in
+                view.backgroundColor = UIColor.clear
+                view.layer.shadowColor = UIColor(rgba: "#CCCCCC").cgColor
+                view.layer.shadowOpacity = 1
+                view.layer.shadowRadius = 5
+                view.layer.shadowOffset = CGSize.zero
+                view.layer.masksToBounds = false
+            })
+            .hs.layout { (make) in
+                make.edges.equalTo(UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
+        }
+        
+        holdView = UIView()
+            .hs.adhere(toSuperView: shadowView)
+            .hs.config({ (view) in
                 view.backgroundColor = UIColor(rgba: "#FCFCFF")
-                view.layer.shadowColor = UIColor.black.cgColor
-                view.layer.shadowOpacity = 0.3
-                view.layer.shadowRadius = 4
-                view.layer.shadowOffset = CGSize(width: 0, height: 0)//CGSize(width: 1.5, height: 1.5)
+                view.layer.cornerRadius = 8
+                view.layer.masksToBounds = true
             })
-            .hs.layout(snapKitMaker: { (make) in
-                make.top.equalTo(5)
-                make.left.equalTo(10)
-                make.right.equalTo(-10)
-                make.bottom.equalTo(-5)
-            })
+            .hs.layout { (make) in
+                make.edges.equalToSuperview()
+        }
+        
         bookImage = UIImageView()
             .hs.adhere(toSuperView: holdView)
             .hs.layout(snapKitMaker: { (make) in
