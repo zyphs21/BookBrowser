@@ -44,9 +44,18 @@ extension BookTableViewCell {
     private func setUp() {
         holdView = UIView()
             .hs.adhere(toSuperView: contentView)
+            .hs.config({ (view) in
+                view.backgroundColor = UIColor(rgba: "#FCFCFF")
+                view.layer.shadowColor = UIColor.black.cgColor
+                view.layer.shadowOpacity = 0.3
+                view.layer.shadowRadius = 4
+                view.layer.shadowOffset = CGSize(width: 0, height: 0)//CGSize(width: 1.5, height: 1.5)
+            })
             .hs.layout(snapKitMaker: { (make) in
-                make.top.left.equalTo(10)
-                make.bottom.right.equalTo(-10)
+                make.top.equalTo(5)
+                make.left.equalTo(10)
+                make.right.equalTo(-10)
+                make.bottom.equalTo(-5)
             })
         bookImage = UIImageView()
             .hs.adhere(toSuperView: holdView)
@@ -70,6 +79,7 @@ extension BookTableViewCell {
             .hs.adhere(toSuperView: holdView)
             .hs.layout(snapKitMaker: { (make) in
                 make.top.equalTo(title.snp.bottom).offset(5)
+                make.left.equalTo(title.snp.left)
             })
     }
 }
