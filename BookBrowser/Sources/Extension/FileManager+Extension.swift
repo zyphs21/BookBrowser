@@ -10,12 +10,13 @@ import Foundation
 
 extension FileManager {
     
-    static let appPath = "org.hansonstudio.bookbrowser/"
+    static let appPath = "bookbrowser-"
     
     class func getCacheDocumentPathWith(_ text: String) -> String {
         let manager = FileManager.default
         let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
         let pathString = appPath + text
+//        return url.appendingPathComponent(pathString, isDirectory: true)!.path
         return url.appendingPathComponent(pathString)!.path
     }
     

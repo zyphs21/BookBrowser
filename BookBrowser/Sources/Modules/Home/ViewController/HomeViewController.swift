@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SwiftyJSON
 
 class HomeViewController: UIViewController {
 
@@ -43,14 +44,26 @@ extension HomeViewController {
         var param = searchBookReqParam()
         param.tag = "文学"
         let searchTarget = BookApi.search(param: param)
-        ApiOperation.requestJSON(with: searchTarget) { [weak self] (json) in
-            guard let strongSelf = self else { return }
-            if let json = json {
-
-                strongSelf.bookList = BookList.getBookList(json: json)
-                strongSelf.tableView.reloadData()
-            } else {
-                
+        let cachePathString = "search-" + param.tag
+        let filePath = FileManager.getCacheDocumentPathWith(cachePathString)
+        dPrint(filePath)
+        if let value = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? String {
+            print("get Subscribe cache success")
+            let json = SwiftyJSON.JSON.init(parseJSON: value)
+            bookList = BookList.getBookList(json: json)
+            tableView.reloadData()
+            
+        } else {
+            ApiOperation.requestJSON(with: searchTarget) { [weak self] (json) in
+                guard let strongSelf = self else { return }
+                if let json = json {
+                    let isSuccess = NSKeyedArchiver.archiveRootObject(json.description, toFile: FileManager.getCacheDocumentPathWith(cachePathString))
+                    dPrint(isSuccess)
+                    strongSelf.bookList = BookList.getBookList(json: json)
+                    strongSelf.tableView.reloadData()
+                } else {
+                    
+                }
             }
         }
     }
