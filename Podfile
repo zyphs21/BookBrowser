@@ -12,6 +12,5 @@ target 'BookBrowser' do
     pod 'Crashlytics'
     pod 'MJRefresh'
     pod 'FMDB'
-    pod 'Toast'
     pod 'UITableView+FDTemplateLayoutCell'
 end

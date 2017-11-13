@@ -8,23 +8,30 @@
 
 import Foundation
 
-public protocol NameSpaceWrappable {
+public protocol NamespaceProtocol {
     associatedtype WrapperType
     var hs: WrapperType { get }
     static var hs: WrapperType.Type { get }
 }
 
-public extension NameSpaceWrappable {
-    var hs: NameSpaceWrapper<Self> {
-        return NameSpaceWrapper(value: self)
+public extension NamespaceProtocol {
+    var hs: NamespaceWrapper<Self> {
+        return NamespaceWrapper(value: self)
     }
     
-    static var hs: NameSpaceWrapper<Self>.Type {
-        return NameSpaceWrapper.self
+    static var hs: NamespaceWrapper<Self>.Type {
+        return NamespaceWrapper.self
     }
 }
 
-public struct NameSpaceWrapper<T> {
+
+public protocol TypeWrapperProtocol {
+    associatedtype WrappedType
+    var wrappedValue: WrappedType { get }
+    init(value: WrappedType)
+}
+
+public struct NamespaceWrapper<T>: TypeWrapperProtocol {
     public let wrappedValue: T
     public init(value: T) {
         self.wrappedValue = value

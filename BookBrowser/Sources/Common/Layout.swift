@@ -12,16 +12,17 @@ import SnapKit
 
 // MARK: - UI 代码链式调用
 
-extension UIView: NameSpaceWrappable { }
-extension NameSpaceWrapper where T: UIView {
+extension UIView: NamespaceProtocol { }
+extension TypeWrapperProtocol where WrappedType: UIView {
+    
     @discardableResult
-    public func adhere(toSuperView: UIView) -> T {
+    public func adhere(toSuperView: UIView) -> WrappedType {
         toSuperView.addSubview(wrappedValue)
         return wrappedValue
     }
     
     @discardableResult
-    public func layout(snapKitMaker: (ConstraintMaker) -> Void) -> T {
+    public func layout(snapKitMaker: (ConstraintMaker) -> Void) ->  WrappedType{
         wrappedValue.snp.makeConstraints { (make) in
             snapKitMaker(make)
         }
@@ -29,7 +30,7 @@ extension NameSpaceWrapper where T: UIView {
     }
     
     @discardableResult
-    public func config(_ config: (T) -> Void) -> T {
+    public func config(_ config: (WrappedType) -> Void) -> WrappedType {
         config(wrappedValue)
         return wrappedValue
     }
