@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicNavigationViewController: UINavigationController {
+class BasicNavigationViewController: UINavigationController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +16,18 @@ class BasicNavigationViewController: UINavigationController {
         if #available(iOS 11.0, *) {
             self.navigationBar.prefersLargeTitles = true
         }
+        
+        self.navigationController?.interactivePopGestureRecognizer!.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        if childViewControllers.count > 0 {
+//            viewController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+//            viewController.navigationItem.leftBarButtonItems = backButtonItem // 自定义返回按钮
+            viewController.hidesBottomBarWhenPushed = true
+            interactivePopGestureRecognizer?.delegate = self
+        }
+        super.pushViewController(viewController, animated: animated)
+        
     }
 }
