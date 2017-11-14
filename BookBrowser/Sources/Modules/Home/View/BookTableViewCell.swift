@@ -20,6 +20,7 @@ class BookTableViewCell: UITableViewCell {
     var rate: UILabel!
     var holdView: UIView!
     var shadowView: UIView!
+    var summary: UILabel!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,6 +39,8 @@ extension BookTableViewCell {
         title.text = book.title
         author.text = book.author.joined(separator: ",")
         RatingView.showInView(view: rateHolderView, value: book.rating.average/2)
+        rate.text = String(book.rating.average)
+        summary.text = book.summary
         if let imageUrl = URL(string: book.images.medium) {
             bookImage.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
         }
@@ -102,8 +105,32 @@ extension BookTableViewCell {
             .hs.adhere(toSuperView: holdView)
             .hs.layout(snapKitMaker: { (make) in
                 make.height.equalTo(12)
+                make.width.equalTo(68)
                 make.top.equalTo(author.snp.bottom).offset(5)
                 make.left.equalTo(title.snp.left)
+            })
+        rate = UILabel()
+            .hs.adhere(toSuperView: holdView)
+            .hs.config({ (label) in
+                label.font = UIFont.systemFont(ofSize: 10)
+                label.textColor = UIColor(rgba: "#DF912B")
+            })
+            .hs.layout(snapKitMaker: { (make) in
+                make.centerY.equalTo(rateHolderView)
+                make.left.equalTo(rateHolderView.snp.right).offset(4)
+            })
+        summary = UILabel()
+            .hs.adhere(toSuperView: holdView)
+            .hs.config({ (label) in
+                label.font = UIFont.systemFont(ofSize: 12)
+                label.textColor = UIColor(rgba: "#DDDDDD")
+                label.numberOfLines = 0
+            })
+            .hs.layout(snapKitMaker: { (make) in
+                make.top.equalTo(rateHolderView.snp.bottom).offset(5)
+                make.right.equalTo(bookImage.snp.left).offset(-5)
+                make.left.equalTo(title.snp.left)
+                make.bottom.equalTo(-5)
             })
     }
 }
