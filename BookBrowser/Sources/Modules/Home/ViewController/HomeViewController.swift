@@ -53,7 +53,7 @@ extension HomeViewController {
             let json = SwiftyJSON.JSON.init(parseJSON: value)
             bookList = BookList.getBookList(json: json)
             tableView.reloadData()
-            
+
         } else {
             ApiOperation.requestJSON(with: searchTarget) { [weak self] (json) in
                 guard let strongSelf = self else { return }
@@ -63,7 +63,7 @@ extension HomeViewController {
                     strongSelf.bookList = BookList.getBookList(json: json)
                     strongSelf.tableView.reloadData()
                 } else {
-                    
+
                 }
             }
         }

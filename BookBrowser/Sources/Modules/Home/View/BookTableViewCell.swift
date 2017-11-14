@@ -16,7 +16,7 @@ class BookTableViewCell: UITableViewCell {
     var title: UILabel!
     var author: UILabel!
     var commentNum: UILabel!
-    var rateView: UIView!
+    var rateHolderView: UIView!
     var rate: UILabel!
     var holdView: UIView!
     var shadowView: UIView!
@@ -37,6 +37,7 @@ extension BookTableViewCell {
     func configureCell(book: Book) {
         title.text = book.title
         author.text = book.author.joined(separator: ",")
+        RatingView.showInView(view: rateHolderView, value: book.rating.average/2)
         if let imageUrl = URL(string: book.images.medium) {
             bookImage.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
         }
@@ -80,16 +81,28 @@ extension BookTableViewCell {
             .hs.adhere(toSuperView: holdView)
             .hs.config({ (label) in
                 label.numberOfLines = 1
+                label.font = UIFont.systemFont(ofSize: 16)
             })
             .hs.layout(snapKitMaker: { (make) in
-                make.top.equalTo(5)
+                make.top.equalTo(bookImage.snp.top)
                 make.left.equalTo(5)
                 make.right.equalTo(bookImage.snp.left).offset(-5)
             })
         author = UILabel()
             .hs.adhere(toSuperView: holdView)
+            .hs.config({ (label) in
+                label.font = UIFont.systemFont(ofSize: 14)
+                label.textColor = UIColor(rgba: "#999999")
+            })
             .hs.layout(snapKitMaker: { (make) in
                 make.top.equalTo(title.snp.bottom).offset(5)
+                make.left.equalTo(title.snp.left)
+            })
+        rateHolderView = UIView()
+            .hs.adhere(toSuperView: holdView)
+            .hs.layout(snapKitMaker: { (make) in
+                make.height.equalTo(12)
+                make.top.equalTo(author.snp.bottom).offset(5)
                 make.left.equalTo(title.snp.left)
             })
     }
