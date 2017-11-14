@@ -85,6 +85,26 @@ extension BookDetailViewController {
             make.left.equalTo(bookCover.snp.right).offset(20)
         }
         
+        let rateHolderView = UIView()
+            .hs.adhere(toSuperView: stretchHeaderView)
+            .hs.layout(snapKitMaker: { (make) in
+                make.height.equalTo(12)
+                make.width.equalTo(68)
+                make.top.equalTo(bookAuthor.snp.bottom).offset(5)
+                make.left.equalTo(bookAuthor.snp.left)
+            })
+        let rate = UILabel()
+            .hs.adhere(toSuperView: stretchHeaderView)
+            .hs.config({ (label) in
+                label.font = UIFont.systemFont(ofSize: 10)
+                label.textColor = UIColor(rgba: "#DF912B")
+            })
+            .hs.layout(snapKitMaker: { (make) in
+                make.centerY.equalTo(rateHolderView)
+                make.left.equalTo(rateHolderView.snp.right).offset(4)
+            })
+        RatingView.showInView(view: rateHolderView, value: book.rating.average/2)
+        rate.text = String(book.rating.average)
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.screenHeight))
         tableView.tableFooterView = UIView()
