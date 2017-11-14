@@ -47,6 +47,7 @@ extension BookDetailViewController {
         navigationView.alpha = 0.0
         
         stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 222))
+        
         let bookCover = UIImageView()
         bookCover.layer.shadowColor = UIColor(rgba: "#CCCCCC").cgColor
         bookCover.layer.shadowOpacity = 1
@@ -56,14 +57,34 @@ extension BookDetailViewController {
         bookCover.snp.makeConstraints { (make) in
             make.centerY.equalTo(stretchHeaderView)
             make.left.equalTo(20)
-            make.height.equalTo(100)
-            make.width.equalTo(70)
+            make.height.equalTo(142)
+            make.width.equalTo(100)
         }
         
         if let imageUrl = URL(string: book.images.medium) {
             stretchHeaderView.backgroudImageView.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
             bookCover.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
         }
+        
+        let bookName = UILabel()
+        bookName.text = book.title
+        bookName.textColor = UIColor.white
+        stretchHeaderView.addSubview(bookName)
+        bookName.snp.makeConstraints { (make) in
+            make.top.equalTo(bookCover.snp.top)
+            make.left.equalTo(bookCover.snp.right).offset(20)
+        }
+        
+        let bookAuthor = UILabel()
+        bookAuthor.text = book.author.joined(separator: ",")
+        bookAuthor.textColor = UIColor.white
+        bookAuthor.font = UIFont.systemFont(ofSize: 14)
+        stretchHeaderView.addSubview(bookAuthor)
+        bookAuthor.snp.makeConstraints { (make) in
+            make.top.equalTo(bookName.snp.bottom).offset(8)
+            make.left.equalTo(bookCover.snp.right).offset(20)
+        }
+        
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.screenHeight))
         tableView.tableFooterView = UIView()
@@ -125,7 +146,7 @@ extension BookDetailViewController {
         let offset: CGFloat = scrollView.contentOffset.y
         stretchHeaderView.updateOffset(contentOffsetX: offset)
         if (offset > 50) {
-            //            let alpha: CGFloat = min(CGFloat(1), CGFloat(1) - (CGFloat(50) + (navigationView.frame.height) - offset) / (navigationView.frame.height))
+            //let alpha: CGFloat = min(CGFloat(1), CGFloat(1) - (CGFloat(50) + (navigationView.frame.height) - offset) / (navigationView.frame.height))
             let alpha: CGFloat = min(CGFloat(1), (offset - 50) / (navigationView.frame.height))
             navigationView.alpha = CGFloat(alpha)
             
