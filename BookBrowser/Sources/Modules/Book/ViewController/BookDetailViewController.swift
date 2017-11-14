@@ -14,6 +14,8 @@ class BookDetailViewController: UIViewController {
     var tableView: UITableView!
     var navigationView: UIView!
     
+    var book: Book = Book()
+    
     
     // MARK: - Life Circle
     
@@ -40,11 +42,29 @@ class BookDetailViewController: UIViewController {
 extension BookDetailViewController {
     
     private func setUpView() {
-        navigationView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 64))
+        navigationView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.navigationHeight))
         navigationView.backgroundColor = UIColor.white
         navigationView.alpha = 0.0
         
         stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 222))
+        let bookCover = UIImageView()
+        bookCover.layer.shadowColor = UIColor(rgba: "#CCCCCC").cgColor
+        bookCover.layer.shadowOpacity = 1
+        bookCover.layer.shadowRadius = 8
+        bookCover.layer.shadowOffset = CGSize.zero
+        stretchHeaderView.addSubview(bookCover)
+        bookCover.snp.makeConstraints { (make) in
+            make.centerY.equalTo(stretchHeaderView)
+            make.left.equalTo(20)
+            make.height.equalTo(100)
+            make.width.equalTo(70)
+        }
+        
+        if let imageUrl = URL(string: book.images.medium) {
+            stretchHeaderView.backgroudImageView.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
+            bookCover.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
+        }
+        
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.screenHeight))
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = stretchHeaderView
@@ -71,7 +91,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.layoutMargins = .zero
-        cell.textLabel?.text = "test"
+        cell.textLabel?.text = ""
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         cell.accessoryType = .disclosureIndicator
         

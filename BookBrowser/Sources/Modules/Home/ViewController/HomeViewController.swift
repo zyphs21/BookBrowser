@@ -89,7 +89,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.navigationController?.pushViewController(BookDetailViewController(), animated: true)
+        let bookDetailVC = BookDetailViewController()
+        bookDetailVC.book = bookList.books[indexPath.row]
+        self.navigationController?.pushViewController(bookDetailVC, animated: true)
         
     }
 }
