@@ -17,16 +17,16 @@ class StretchHeaderView: UIView {
     
     // MARK: - Initialize
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, blurAreaHeight: CGFloat) {
         super.init(frame: frame)
         
-        contentSize = CGSize(width: frame.width, height: frame.height)
+        contentSize = CGSize(width: frame.width, height: blurAreaHeight)
         
-        backgroudImageView = UIImageView(frame: frame)
+        backgroudImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.width, height: blurAreaHeight))
         backgroudImageView.clipsToBounds = true
         backgroudImageView.contentMode = .scaleAspectFill
         backgroudImageView.isUserInteractionEnabled = true
-        backgroudImageView.image = UIImage.renderImageWithColor(UIColor.cyan, size: frame.size)
+        backgroudImageView.image = UIImage.renderImageWithColor(UIColor.cyan, size: CGSize(width: frame.width, height: blurAreaHeight))
         addSubview(backgroudImageView)
         
         effectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))

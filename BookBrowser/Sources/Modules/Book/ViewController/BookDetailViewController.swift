@@ -46,7 +46,7 @@ extension BookDetailViewController {
         navigationView.backgroundColor = UIColor.white
         navigationView.alpha = 0.0
         
-        stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 222))
+        stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 222), blurAreaHeight: 111)
         
         let bookCover = UIImageView()
         bookCover.layer.shadowColor = UIColor(rgba: "#CCCCCC").cgColor
@@ -68,16 +68,16 @@ extension BookDetailViewController {
         
         let bookName = UILabel()
         bookName.text = book.title
-        bookName.textColor = UIColor.white
+        bookName.textColor = UIColor.mainBlack
         stretchHeaderView.addSubview(bookName)
         bookName.snp.makeConstraints { (make) in
-            make.top.equalTo(bookCover.snp.top)
+            make.top.equalTo(bookCover.snp.centerY).offset(5)
             make.left.equalTo(bookCover.snp.right).offset(20)
         }
         
         let bookAuthor = UILabel()
         bookAuthor.text = book.author.joined(separator: ",")
-        bookAuthor.textColor = UIColor.white
+        bookAuthor.textColor = UIColor.minorBlack
         bookAuthor.font = UIFont.systemFont(ofSize: 14)
         stretchHeaderView.addSubview(bookAuthor)
         bookAuthor.snp.makeConstraints { (make) in

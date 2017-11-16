@@ -21,8 +21,6 @@ extension UIScreen {
     }
 }
 
-
-
 extension UIDevice {
     public func isiPhoneX() -> Bool {
         if UIScreen.main.bounds.height == 812 {
@@ -30,4 +28,9 @@ extension UIDevice {
         }
         return false
     }
+}
+
+extension UIColor {
+    public static let mainBlack = UIColor(rgba: "#333333")
+    public static let minorBlack = UIColor(rgba: "#999999")
 }

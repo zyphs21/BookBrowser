@@ -95,7 +95,7 @@ extension BookTableViewCell {
             .hs.adhere(toSuperView: holdView)
             .hs.config({ (label) in
                 label.font = UIFont.systemFont(ofSize: 14)
-                label.textColor = UIColor(rgba: "#999999")
+                label.textColor = UIColor.minorBlack
             })
             .hs.layout(snapKitMaker: { (make) in
                 make.top.equalTo(title.snp.bottom).offset(5)
