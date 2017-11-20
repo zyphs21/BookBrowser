@@ -87,6 +87,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: BookTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.configureCell(book: bookList.books[indexPath.row])
+        dPrint(bookList.books[indexPath.row].id)
         cell.selectionStyle = .none
         return cell
     }
