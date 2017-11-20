@@ -16,6 +16,9 @@ class BookDetailViewController: UIViewController {
     
     var book: Book = Book()
     
+    private var heightOfHeader: CGFloat = 222
+    private let heightOfBlurArea: CGFloat = 60
+    
     
     // MARK: - Life Circle
     
@@ -46,7 +49,7 @@ extension BookDetailViewController {
         navigationView.backgroundColor = UIColor.white
         navigationView.alpha = 0.0
         
-        stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 222), blurAreaHeight: 111)
+        stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 222), blurAreaHeight: heightOfBlurArea)
         
         let bookCover = UIImageView()
         bookCover.layer.shadowColor = UIColor(rgba: "#CCCCCC").cgColor
@@ -55,7 +58,7 @@ extension BookDetailViewController {
         bookCover.layer.shadowOffset = CGSize.zero
         stretchHeaderView.addSubview(bookCover)
         bookCover.snp.makeConstraints { (make) in
-            make.centerY.equalTo(stretchHeaderView)
+            make.top.equalTo(heightOfBlurArea/2)
             make.left.equalTo(20)
             make.height.equalTo(142)
             make.width.equalTo(100)
@@ -71,7 +74,7 @@ extension BookDetailViewController {
         bookName.textColor = UIColor.mainBlack
         stretchHeaderView.addSubview(bookName)
         bookName.snp.makeConstraints { (make) in
-            make.top.equalTo(bookCover.snp.centerY).offset(5)
+            make.top.equalTo(heightOfBlurArea + 5)
             make.left.equalTo(bookCover.snp.right).offset(20)
         }
         

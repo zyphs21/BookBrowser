@@ -35,6 +35,10 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }
 
 // MARK: - Funcion
