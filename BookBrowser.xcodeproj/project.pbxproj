@@ -614,7 +614,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BookBrowser/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DHSDebug";
-				PRODUCT_BUNDLE_IDENTIFIER = org.hanson.BookBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HansonStudio.BookBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BookBrowser/SupportFiles/BookBrowser-Bridging-Header.h";
@@ -635,7 +635,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BookBrowser/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DHSDebug";
-				PRODUCT_BUNDLE_IDENTIFIER = org.hanson.BookBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HansonStudio.BookBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BookBrowser/SupportFiles/BookBrowser-Bridging-Header.h";

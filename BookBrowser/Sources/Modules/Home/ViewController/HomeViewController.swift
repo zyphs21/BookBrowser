@@ -9,11 +9,22 @@
 import UIKit
 import SnapKit
 import SwiftyJSON
+import BarcodeScanner
 
 class HomeViewController: UIViewController {
 
     private var tableView: UITableView!
     private var bookList: BookList = BookList()
+    
+    lazy var awareButton: UIBarButtonItem = {
+        let awareButton = UIButton(frame: CGRect(x: 0, y: 0, width: 62, height: 18))
+        awareButton.setTitle("扫描", for: .normal)
+        awareButton.setTitleColor(UIColor.hs.mainBlack, for: .normal)
+        awareButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        awareButton.addTarget(self, action: #selector(toExplain), for: .touchUpInside)
+        let awareBarButtonItem = UIBarButtonItem(customView: awareButton)
+        return awareBarButtonItem
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +49,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.rightBarButtonItem = awareButton
     }
 }
 
@@ -72,6 +84,14 @@ extension HomeViewController {
             }
         }
     }
+    
+    @objc private func toExplain() {
+        let controller = BarcodeScannerController()
+        controller.codeDelegate = self
+        controller.errorDelegate = self
+        controller.dismissalDelegate = self
+        present(controller, animated: true, completion: nil)
+    }
 }
 
 
@@ -98,5 +118,27 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         bookDetailVC.book = bookList.books[indexPath.row]
         self.navigationController?.pushViewController(bookDetailVC, animated: true)
         
+    }
+}
+
+extension HomeViewController: BarcodeScannerCodeDelegate {
+    
+    func barcodeScanner(_ controller: BarcodeScannerController, didCaptureCode code: String, type: String) {
+        print(code)
+        controller.reset()
+    }
+}
+
+extension HomeViewController: BarcodeScannerErrorDelegate {
+    
+    func barcodeScanner(_ controller: BarcodeScannerController, didReceiveError error: Error) {
+        print(error)
+    }
+}
+
+extension HomeViewController: BarcodeScannerDismissalDelegate {
+    
+    func barcodeScannerDidDismiss(_ controller: BarcodeScannerController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
