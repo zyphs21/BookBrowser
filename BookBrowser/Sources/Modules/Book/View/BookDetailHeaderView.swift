@@ -16,8 +16,10 @@ class BookDetailHeaderView: UIView {
     var bookAuthor: UILabel!
     var rateHolderView: UIView!
     var rate: UILabel!
+    var summaryLabel: UILabel!
+    var summary: UILabel!
     
-    var heightOfHeader: CGFloat = 222
+    var heightOfHeader: CGFloat = 250
     private let heightOfBlurArea: CGFloat = 60
     
     
@@ -30,7 +32,7 @@ class BookDetailHeaderView: UIView {
         self.addSubview(stretchHeaderView)
         
         bookCover = UIImageView()
-        bookCover.layer.shadowColor = UIColor(rgba: "#CCCCCC").cgColor
+        bookCover.layer.shadowColor = UIColor.hs.shadowColor.cgColor
         bookCover.layer.shadowOpacity = 1
         bookCover.layer.shadowRadius = 8
         bookCover.layer.shadowOffset = CGSize.zero
@@ -42,10 +44,8 @@ class BookDetailHeaderView: UIView {
             make.width.equalTo(100)
         }
         
-        
-        
         bookName = UILabel()
-        bookName.textColor = UIColor.mainBlack
+        bookName.textColor = UIColor.hs.mainBlack
         stretchHeaderView.addSubview(bookName)
         bookName.snp.makeConstraints { (make) in
             make.top.equalTo(heightOfBlurArea + 5)
@@ -53,7 +53,7 @@ class BookDetailHeaderView: UIView {
         }
         
         bookAuthor = UILabel()
-        bookAuthor.textColor = UIColor.minorBlack
+        bookAuthor.textColor = UIColor.hs.minorBlack
         bookAuthor.font = UIFont.systemFont(ofSize: 14)
         stretchHeaderView.addSubview(bookAuthor)
         bookAuthor.snp.makeConstraints { (make) in
@@ -80,6 +80,30 @@ class BookDetailHeaderView: UIView {
                 make.left.equalTo(rateHolderView.snp.right).offset(4)
             })
         
+        summaryLabel = UILabel()
+            .hs.adhere(toSuperView: stretchHeaderView)
+            .hs.config({ (label) in
+                label.font = UIFont.systemFont(ofSize: 16)
+                label.textColor = UIColor.hs.orange
+                label.text = "简介："
+            })
+            .hs.layout(snapKitMaker: { (make) in
+                make.top.equalTo(bookCover.snp.bottom).offset(10)
+                make.left.equalTo(bookCover.snp.left)
+            })
+        summary = UILabel()
+            .hs.adhere(toSuperView: stretchHeaderView)
+            .hs.config({ (label) in
+                label.font = UIFont.systemFont(ofSize: 15)
+                label.textColor = UIColor.hs.minorBlack
+                label.numberOfLines = 5
+            })
+            .hs.layout(snapKitMaker: { (make) in
+                make.top.equalTo(summaryLabel.snp.bottom).offset(5)
+                make.left.equalTo(bookCover.snp.left)
+                make.right.equalTo(-10)
+            })
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -87,6 +111,8 @@ class BookDetailHeaderView: UIView {
     }
 }
 
+
+// MARK: - Function
 
 extension BookDetailHeaderView {
     func configureHeader(book: Book) {
@@ -98,5 +124,6 @@ extension BookDetailHeaderView {
         bookAuthor.text = book.author.joined(separator: ",")
         rate.text = String(book.rating.average)
         RatingView.showInView(view: rateHolderView, value: book.rating.average/2)
+        summary.text = book.summary
     }
 }

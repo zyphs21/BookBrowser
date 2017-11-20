@@ -30,7 +30,14 @@ extension UIDevice {
     }
 }
 
-extension UIColor {
+extension UIColor: NamespaceProtocol {}
+extension NamespaceWrapper where WrappedType == UIColor {
     public static let mainBlack = UIColor(rgba: "#333333")
     public static let minorBlack = UIColor(rgba: "#999999")
+    public static let orange = UIColor(rgba: "#DF912B")
+    public static let shadowColor = UIColor(rgba: "#CCCCCC")
+}
+
+struct BBConstant {
+    
 }
