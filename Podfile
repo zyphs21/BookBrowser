@@ -11,7 +11,4 @@ target 'BookBrowser' do
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'MJRefresh'
-    pod 'FMDB'
-    pod 'UITableView+FDTemplateLayoutCell'
-    pod 'BarcodeScanner'
 end

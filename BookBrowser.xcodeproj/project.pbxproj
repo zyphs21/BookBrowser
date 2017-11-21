@@ -24,6 +24,13 @@
 		C0237CC11FA2E0A200856C1C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA51FA2E0A200856C1C /* TabBarController.swift */; };
 		C031DE541FC27C04005B424C /* BookDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031DE531FC27C04005B424C /* BookDetailHeaderView.swift */; };
 		C092B7A81FB0E05E00445256 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C092B7A71FB0E05E00445256 /* FileManager+Extension.swift */; };
+		C09DC5271FC3FDC900B69E61 /* TorchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DC5201FC3FDC900B69E61 /* TorchMode.swift */; };
+		C09DC5281FC3FDC900B69E61 /* FocusViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DC5211FC3FDC900B69E61 /* FocusViewType.swift */; };
+		C09DC5291FC3FDC900B69E61 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DC5221FC3FDC900B69E61 /* State.swift */; };
+		C09DC52A1FC3FDC900B69E61 /* BarcodeScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DC5231FC3FDC900B69E61 /* BarcodeScannerController.swift */; };
+		C09DC52B1FC3FDC900B69E61 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DC5241FC3FDC900B69E61 /* HeaderView.swift */; };
+		C09DC52C1FC3FDC900B69E61 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DC5251FC3FDC900B69E61 /* Config.swift */; };
+		C09DC52D1FC3FDC900B69E61 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DC5261FC3FDC900B69E61 /* InfoView.swift */; };
 		C0A6A66E1FA94E710075CE06 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A6A66D1FA94E710075CE06 /* HomeViewController.swift */; };
 		C0A6A6711FA950190075CE06 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A6A6701FA950190075CE06 /* BookTableViewCell.swift */; };
 		C0C15BD11FB93AB600CFBEA7 /* StretchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C15BD01FB93AB600CFBEA7 /* StretchHeaderView.swift */; };
@@ -62,6 +69,13 @@
 		C0237CA51FA2E0A200856C1C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C031DE531FC27C04005B424C /* BookDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailHeaderView.swift; sourceTree = "<group>"; };
 		C092B7A71FB0E05E00445256 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		C09DC5201FC3FDC900B69E61 /* TorchMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorchMode.swift; sourceTree = "<group>"; };
+		C09DC5211FC3FDC900B69E61 /* FocusViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusViewType.swift; sourceTree = "<group>"; };
+		C09DC5221FC3FDC900B69E61 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		C09DC5231FC3FDC900B69E61 /* BarcodeScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScannerController.swift; sourceTree = "<group>"; };
+		C09DC5241FC3FDC900B69E61 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		C09DC5251FC3FDC900B69E61 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C09DC5261FC3FDC900B69E61 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		C0A6A66D1FA94E710075CE06 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C0A6A6701FA950190075CE06 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		C0C15BD01FB93AB600CFBEA7 /* StretchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchHeaderView.swift; sourceTree = "<group>"; };
@@ -142,6 +156,7 @@
 		C0237C861FA2E0A200856C1C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C09DC5101FC3FD4600B69E61 /* Vendor */,
 				C0237C901FA2E0A200856C1C /* AppDelegate */,
 				C0237C921FA2E0A200856C1C /* Modules */,
 				C0237C871FA2E0A200856C1C /* Extension */,
@@ -250,6 +265,28 @@
 				C0C15BCE1FB939BE00CFBEA7 /* View */,
 			);
 			path = Book;
+			sourceTree = "<group>";
+		};
+		C09DC5101FC3FD4600B69E61 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C09DC5111FC3FD8400B69E61 /* BarcodeScanner */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C09DC5111FC3FD8400B69E61 /* BarcodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				C09DC5231FC3FDC900B69E61 /* BarcodeScannerController.swift */,
+				C09DC5251FC3FDC900B69E61 /* Config.swift */,
+				C09DC5211FC3FDC900B69E61 /* FocusViewType.swift */,
+				C09DC5241FC3FDC900B69E61 /* HeaderView.swift */,
+				C09DC5261FC3FDC900B69E61 /* InfoView.swift */,
+				C09DC5221FC3FDC900B69E61 /* State.swift */,
+				C09DC5201FC3FDC900B69E61 /* TorchMode.swift */,
+			);
+			path = BarcodeScanner;
 			sourceTree = "<group>";
 		};
 		C0A6A66F1FA94F3C0075CE06 /* View */ = {
@@ -461,18 +498,25 @@
 				C0237CAD1FA2E0A200856C1C /* Review.swift in Sources */,
 				C0C720341FA334E30023922E /* BasicNavigationViewController.swift in Sources */,
 				C0FC20F31FB163330087BCDA /* UIColor+Extension.swift in Sources */,
+				C09DC5291FC3FDC900B69E61 /* State.swift in Sources */,
 				C0C15BDA1FB94ECA00CFBEA7 /* Constant.swift in Sources */,
 				C0237CB71FA2E0A200856C1C /* RatingView.swift in Sources */,
 				C0237CAF1FA2E0A200856C1C /* Author.swift in Sources */,
 				C0DDE1AA1FA778F9008DF5FE /* ApiOperation.swift in Sources */,
 				C0DDE1AC1FA77971008DF5FE /* BookApi.swift in Sources */,
+				C09DC5281FC3FDC900B69E61 /* FocusViewType.swift in Sources */,
 				C0A6A66E1FA94E710075CE06 /* HomeViewController.swift in Sources */,
 				C0CEE72C1FB148F80027C606 /* Common.swift in Sources */,
+				C09DC52D1FC3FDC900B69E61 /* InfoView.swift in Sources */,
 				C0D54DEF1FB031AB00013E93 /* NameSpace.swift in Sources */,
+				C09DC52C1FC3FDC900B69E61 /* Config.swift in Sources */,
+				C09DC5271FC3FDC900B69E61 /* TorchMode.swift in Sources */,
+				C09DC52A1FC3FDC900B69E61 /* BarcodeScannerController.swift in Sources */,
 				C0237CB01FA2E0A200856C1C /* Book.swift in Sources */,
 				C0C15BD11FB93AB600CFBEA7 /* StretchHeaderView.swift in Sources */,
 				C0237CBD1FA2E0A200856C1C /* BookSearchController.swift in Sources */,
 				C0237CB31FA2E0A200856C1C /* MenuTableViewController.swift in Sources */,
+				C09DC52B1FC3FDC900B69E61 /* HeaderView.swift in Sources */,
 				C0237CC11FA2E0A200856C1C /* TabBarController.swift in Sources */,
 				C0237CB21FA2E0A200856C1C /* AppDelegate.swift in Sources */,
 				C0237CBF1FA2E0A200856C1C /* BookDetailViewController.swift in Sources */,
