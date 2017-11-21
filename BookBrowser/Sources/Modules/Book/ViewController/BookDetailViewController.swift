@@ -50,76 +50,20 @@ extension BookDetailViewController {
         navigationView.backgroundColor = UIColor.white
         navigationView.alpha = 0.0
         
-//        stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 222), blurAreaHeight: heightOfBlurArea)
-//
-//        let bookCover = UIImageView()
-//        bookCover.layer.shadowColor = UIColor(rgba: "#CCCCCC").cgColor
-//        bookCover.layer.shadowOpacity = 1
-//        bookCover.layer.shadowRadius = 8
-//        bookCover.layer.shadowOffset = CGSize.zero
-//        stretchHeaderView.addSubview(bookCover)
-//        bookCover.snp.makeConstraints { (make) in
-//            make.top.equalTo(heightOfBlurArea/2)
-//            make.left.equalTo(20)
-//            make.height.equalTo(142)
-//            make.width.equalTo(100)
-//        }
-//
-//        if let imageUrl = URL(string: book.images.medium) {
-//            stretchHeaderView.backgroudImageView.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
-//            bookCover.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
-//        }
-//
-//        let bookName = UILabel()
-//        bookName.text = book.title
-//        bookName.textColor = UIColor.mainBlack
-//        stretchHeaderView.addSubview(bookName)
-//        bookName.snp.makeConstraints { (make) in
-//            make.top.equalTo(heightOfBlurArea + 5)
-//            make.left.equalTo(bookCover.snp.right).offset(20)
-//        }
-//
-//        let bookAuthor = UILabel()
-//        bookAuthor.text = book.author.joined(separator: ",")
-//        bookAuthor.textColor = UIColor.minorBlack
-//        bookAuthor.font = UIFont.systemFont(ofSize: 14)
-//        stretchHeaderView.addSubview(bookAuthor)
-//        bookAuthor.snp.makeConstraints { (make) in
-//            make.top.equalTo(bookName.snp.bottom).offset(8)
-//            make.left.equalTo(bookCover.snp.right).offset(20)
-//        }
-//
-//        let rateHolderView = UIView()
-//            .hs.adhere(toSuperView: stretchHeaderView)
-//            .hs.layout(snapKitMaker: { (make) in
-//                make.height.equalTo(12)
-//                make.width.equalTo(68)
-//                make.top.equalTo(bookAuthor.snp.bottom).offset(5)
-//                make.left.equalTo(bookAuthor.snp.left)
-//            })
-//        let rate = UILabel()
-//            .hs.adhere(toSuperView: stretchHeaderView)
-//            .hs.config({ (label) in
-//                label.font = UIFont.systemFont(ofSize: 10)
-//                label.textColor = UIColor(rgba: "#DF912B")
-//            })
-//            .hs.layout(snapKitMaker: { (make) in
-//                make.centerY.equalTo(rateHolderView)
-//                make.left.equalTo(rateHolderView.snp.right).offset(4)
-//            })
-//        RatingView.showInView(view: rateHolderView, value: book.rating.average/2)
-//        rate.text = String(book.rating.average)
         bookDetailHeaderView = BookDetailHeaderView()
         bookDetailHeaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: bookDetailHeaderView.heightOfHeader)
         bookDetailHeaderView.configureHeader(book: book)
+        
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.screenHeight))
         tableView.tableFooterView = UIView()
-        tableView.tableHeaderView = bookDetailHeaderView
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: bookDetailHeaderView.heightOfHeader))//bookDetailHeaderView
         tableView.register(UITableViewCell.self)
         tableView.separatorInset = .zero
         tableView.layoutMargins = .zero
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.addSubview(bookDetailHeaderView)
         
         self.view.addSubview(tableView!)
         self.view.addSubview(navigationView)
@@ -132,13 +76,13 @@ extension BookDetailViewController {
 extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.layoutMargins = .zero
-        cell.textLabel?.text = ""
+        cell.textLabel?.text = "test"
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         cell.accessoryType = .disclosureIndicator
         
@@ -175,6 +119,8 @@ extension BookDetailViewController {
             //let alpha: CGFloat = min(CGFloat(1), CGFloat(1) - (CGFloat(50) + (navigationView.frame.height) - offset) / (navigationView.frame.height))
             let alpha: CGFloat = min(CGFloat(1), (offset - 50) / (navigationView.frame.height))
             navigationView.alpha = CGFloat(alpha)
+            
+            bookDetailHeaderView.frame = CGRect(x: 0, y: offset - 50, width: UIScreen.screenWidth, height: bookDetailHeaderView.heightOfHeader)
             
         } else {
             navigationView.alpha = 0.0
