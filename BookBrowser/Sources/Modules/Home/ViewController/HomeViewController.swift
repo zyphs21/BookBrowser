@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import SwiftyJSON
-import BarcodeScanner
 
 class HomeViewController: UIViewController {
 
