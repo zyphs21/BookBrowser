@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  BookBrowser
+
+  Created by Hanson on 2017/11/21.
+  Copyright © 2017年 hanson. All rights reserved.
+*/
+
+"SCAN_BARCODE_TITLE" = "扫描条形码";
+"BUTTON_CLOSE" = "关闭";
+"BUTTON_SETTINGS" = "设置";
+"INFO_DESCRIPTION_TEXT" = "请把条形码置于扫描框中";
+"INFO_LOADING_TITLE" = "正在寻找信息...";
+"NO_PRODUCT_ERROR_TITLE" = "没有发现信息";
+"ASK_FOR_PERMISSION_TEXT" = "需要您的允许来使用相机扫描二维码";

@@ -22,6 +22,7 @@
 		C0237CBD1FA2E0A200856C1C /* BookSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA11FA2E0A200856C1C /* BookSearchController.swift */; };
 		C0237CBF1FA2E0A200856C1C /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA31FA2E0A200856C1C /* BookDetailViewController.swift */; };
 		C0237CC11FA2E0A200856C1C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0237CA51FA2E0A200856C1C /* TabBarController.swift */; };
+		C0284EAC1FC4134D00C5CCC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0284EAE1FC4134D00C5CCC1 /* Localizable.strings */; };
 		C031DE541FC27C04005B424C /* BookDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031DE531FC27C04005B424C /* BookDetailHeaderView.swift */; };
 		C092B7A81FB0E05E00445256 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C092B7A71FB0E05E00445256 /* FileManager+Extension.swift */; };
 		C09DC5271FC3FDC900B69E61 /* TorchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DC5201FC3FDC900B69E61 /* TorchMode.swift */; };
@@ -67,6 +68,9 @@
 		C0237CA11FA2E0A200856C1C /* BookSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSearchController.swift; sourceTree = "<group>"; };
 		C0237CA31FA2E0A200856C1C /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		C0237CA51FA2E0A200856C1C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C0284EA91FC412A700C5CCC1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		C0284EAD1FC4134D00C5CCC1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C0284EAF1FC4135100C5CCC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C031DE531FC27C04005B424C /* BookDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailHeaderView.swift; sourceTree = "<group>"; };
 		C092B7A71FB0E05E00445256 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		C09DC5201FC3FDC900B69E61 /* TorchMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorchMode.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				C0237C801FA2E0A200856C1C /* LaunchScreen.storyboard */,
 				C0237C841FA2E0A200856C1C /* BookBrowser-Bridging-Header.h */,
 				C0237C851FA2E0A200856C1C /* Info.plist */,
+				C0284EAE1FC4134D00C5CCC1 /* Localizable.strings */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0237CA81FA2E0A200856C1C /* Assets.xcassets in Resources */,
+				C0284EAC1FC4134D00C5CCC1 /* Localizable.strings in Resources */,
 				C0237CA91FA2E0A200856C1C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,8 +537,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				C0237C811FA2E0A200856C1C /* Base */,
+				C0284EA91FC412A700C5CCC1 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C0284EAE1FC4134D00C5CCC1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0284EAD1FC4134D00C5CCC1 /* zh-Hans */,
+				C0284EAF1FC4135100C5CCC1 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -542,6 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -596,6 +613,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
