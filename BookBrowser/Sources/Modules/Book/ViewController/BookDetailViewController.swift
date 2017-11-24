@@ -10,7 +10,8 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
 
-//    var stretchHeaderView: StretchHeaderView!
+    var stretchHeaderView: StretchHeaderView!
+    var bookDeatilBasicView: BookDetailBasicView!
     var bookDetailHeaderView: BookDetailHeaderView!
     var tableView: UITableView!
     var navigationView: UIView!
@@ -46,27 +47,41 @@ class BookDetailViewController: UIViewController {
 extension BookDetailViewController {
     
     private func setUpView() {
-        navigationView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.navigationHeight))
-        navigationView.backgroundColor = UIColor.white
-        navigationView.alpha = 0.0
+//        navigationView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.navigationHeight))
+//        navigationView.backgroundColor = UIColor.white
+//        navigationView.alpha = 0.0
+//        navigationView.isHidden = true
         
-        bookDetailHeaderView = BookDetailHeaderView()
-        bookDetailHeaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: bookDetailHeaderView.heightOfHeader)
-        bookDetailHeaderView.configureHeader(book: book)
+        stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 128), blurAreaHeight: 128)
+        if let imageUrl = URL(string: book.images.medium) {
+            stretchHeaderView.backgroudImageView.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
+        }
+        
+        bookDeatilBasicView = BookDetailBasicView(frame: CGRect(x: 0, y: stretchHeaderView.frame.maxY, width: UIScreen.screenWidth, height: 150))
+        bookDeatilBasicView.configureHeader(book: book)
+        
+//        bookDetailHeaderView = BookDetailHeaderView()
+//        bookDetailHeaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: bookDetailHeaderView.heightOfHeader)
+//        bookDetailHeaderView.configureHeader(book: book)
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.screenHeight))
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
         tableView.tableFooterView = UIView()
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: bookDetailHeaderView.heightOfHeader))//bookDetailHeaderView
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 278))
         tableView.register(UITableViewCell.self)
         tableView.separatorInset = .zero
         tableView.layoutMargins = .zero
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.addSubview(bookDetailHeaderView)
+//        tableView.addSubview(bookDetailHeaderView)
+        tableView.addSubview(stretchHeaderView)
+        tableView.addSubview(bookDeatilBasicView)
         
         self.view.addSubview(tableView!)
-        self.view.addSubview(navigationView)
+//        self.view.addSubview(navigationView)
     }
 }
 
@@ -114,16 +129,15 @@ extension BookDetailViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let offset: CGFloat = scrollView.contentOffset.y
-        bookDetailHeaderView.stretchHeaderView.updateOffset(contentOffsetX: offset)
-        if (offset > 50) {
-            //let alpha: CGFloat = min(CGFloat(1), CGFloat(1) - (CGFloat(50) + (navigationView.frame.height) - offset) / (navigationView.frame.height))
-            let alpha: CGFloat = min(CGFloat(1), (offset - 50) / (navigationView.frame.height))
-            navigationView.alpha = CGFloat(alpha)
-            
-            bookDetailHeaderView.frame = CGRect(x: 0, y: offset - 50, width: UIScreen.screenWidth, height: bookDetailHeaderView.heightOfHeader)
+        stretchHeaderView.updateOffset(contentOffsetX: offset)
+        dPrint("offSet--" + "\(offset)")
+        if (offset > BBConstant.navigationHeight) {
+            self.tableView.bringSubview(toFront: stretchHeaderView)
+            stretchHeaderView.frame = CGRect(x: 0, y: offset - BBConstant.navigationHeight, width: UIScreen.screenWidth, height: 128)
             
         } else {
-            navigationView.alpha = 0.0
+            self.tableView.bringSubview(toFront: bookDeatilBasicView)
+            stretchHeaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 128)
         }
     }
 }

@@ -13,12 +13,6 @@ extension UIScreen {
     public static let screenWidth = UIScreen.main.bounds.width
     public static let screenHeight = UIScreen.main.bounds.height
     public static let fourInchPhoneWidth: CGFloat = 320
-    public static var navigationHeight: CGFloat {
-        get { return UIDevice().isiPhoneX() ? 88 : 64 }
-    }
-    public static var statusBarHeight: CGFloat {
-        get { return UIDevice().isiPhoneX() ? 44 : 20 }
-    }
 }
 
 extension UIDevice {
@@ -39,5 +33,10 @@ extension NamespaceWrapper where WrappedType == UIColor {
 }
 
 struct BBConstant {
-    
+    public static var navigationHeight: CGFloat {
+        return UIDevice().isiPhoneX() ? 88 : 64
+    }
+    public static var statusBarHeight: CGFloat {
+        return UIDevice().isiPhoneX() ? 44 : 20
+    }
 }
