@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum BookDetailSection {
+    case description
+    case other
+}
+
 class BookDetailViewController: UIViewController {
 
     var stretchHeaderView: StretchHeaderView!
@@ -20,6 +25,7 @@ class BookDetailViewController: UIViewController {
     
     private var heightOfHeader: CGFloat = 222
     private let heightOfBlurArea: CGFloat = 60
+    private let sections: [BookDetailSection] = [.description]
     
     
     // MARK: - Life Circle
@@ -71,6 +77,8 @@ extension BookDetailViewController {
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 278))
         tableView.register(UITableViewCell.self)
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorInset = .zero
         tableView.layoutMargins = .zero
         tableView.delegate = self
@@ -90,22 +98,35 @@ extension BookDetailViewController {
 
 extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        switch sections[section] {
+        case .description:
+            return 1
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.layoutMargins = .zero
-        cell.textLabel?.text = "test"
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
-        cell.accessoryType = .disclosureIndicator
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        switch sections[indexPath.section] {
+        case .description:
+            let cell: UITableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.numberOfLines = 4
+            cell.textLabel?.text = book.summary
+            cell.selectionStyle = .none
+            return cell
+        default:
+            let cell: UITableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.layoutMargins = .zero
+            cell.textLabel?.text = "test"
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+            cell.accessoryType = .disclosureIndicator
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
