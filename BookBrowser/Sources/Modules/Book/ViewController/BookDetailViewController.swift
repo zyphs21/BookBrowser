@@ -23,9 +23,11 @@ class BookDetailViewController: UIViewController {
     
     var book: Book = Book()
     
+    private let stretchHeaderViewHeight: CGFloat = 128
+    private let stretchHeaderStopOffset: CGFloat = 128 - UIScreen.navigationHeight
     private var heightOfHeader: CGFloat = 222
     private let heightOfBlurArea: CGFloat = 60
-    private let sections: [BookDetailSection] = [.description]
+    private let sections: [BookDetailSection] = [.description, .other]
     
     
     // MARK: - Life Circle
@@ -58,12 +60,13 @@ extension BookDetailViewController {
 //        navigationView.alpha = 0.0
 //        navigationView.isHidden = true
         
-        stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 128), blurAreaHeight: 128)
+        stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: stretchHeaderViewHeight), blurAreaHeight: stretchHeaderViewHeight)
         if let imageUrl = URL(string: book.images.medium) {
             stretchHeaderView.backgroudImageView.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
         }
         
-        bookDeatilBasicView = BookDetailBasicView(frame: CGRect(x: 0, y: stretchHeaderView.frame.maxY, width: UIScreen.screenWidth, height: 150))
+        bookDeatilBasicView = BookDetailBasicView(frame: CGRect(x: 0, y: stretchHeaderViewHeight, width: UIScreen.screenWidth, height: 150))
+        bookDeatilBasicView.backgroundColor = UIColor.white
         bookDeatilBasicView.configureHeader(book: book)
         
 //        bookDetailHeaderView = BookDetailHeaderView()
@@ -76,6 +79,7 @@ extension BookDetailViewController {
         }
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 278))
+        tableView.backgroundColor = UIColor.clear
         tableView.register(UITableViewCell.self)
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -85,9 +89,11 @@ extension BookDetailViewController {
         tableView.dataSource = self
         
 //        tableView.addSubview(bookDetailHeaderView)
-        tableView.addSubview(stretchHeaderView)
+        
+//        tableView.addSubview(stretchHeaderView)
         tableView.addSubview(bookDeatilBasicView)
         
+        self.view.addSubview(stretchHeaderView!)
         self.view.addSubview(tableView!)
 //        self.view.addSubview(navigationView)
     }
@@ -107,7 +113,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
         case .description:
             return 1
         default:
-            return 0
+            return 20
         }
     }
     
@@ -150,15 +156,46 @@ extension BookDetailViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let offset: CGFloat = scrollView.contentOffset.y
+        var headerTransform = CATransform3DIdentity
         stretchHeaderView.updateOffset(contentOffsetX: offset)
         dPrint("offSet--" + "\(offset)")
-        if (offset > BBConstant.navigationHeight) {
-            self.tableView.bringSubview(toFront: stretchHeaderView)
-            stretchHeaderView.frame = CGRect(x: 0, y: offset - BBConstant.navigationHeight, width: UIScreen.screenWidth, height: 128)
+        
+        // pull down
+        if offset < 0 {
+            let headerScaleFactor: CGFloat = -(offset) / stretchHeaderViewHeight
+            let headerSizevariation = ((stretchHeaderViewHeight * (1.0 + headerScaleFactor)) - stretchHeaderViewHeight)/2.0
+            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
+            
+            stretchHeaderView.layer.transform = headerTransform
             
         } else {
-            self.tableView.bringSubview(toFront: bookDeatilBasicView)
-            stretchHeaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 128)
+            headerTransform = CATransform3DTranslate(headerTransform, 0, max(-stretchHeaderStopOffset, -offset), 0)
+            
+            if offset <= stretchHeaderStopOffset {
+                stretchHeaderView.layer.zPosition = 0
+//                if avatarImage.layer.zPosition < header.layer.zPosition{
+//                    header.layer.zPosition = 0
+//                }
+                
+            } else {
+//                if avatarImage.layer.zPosition >= header.layer.zPosition{
+//                    header.layer.zPosition = 2
+//                }
+                stretchHeaderView.layer.zPosition = 2
+            }
         }
+        
+        stretchHeaderView.layer.transform = headerTransform
+        
+        
+//        if (offset > UIScreen.navigationHeight) {
+//            self.tableView.bringSubview(toFront: stretchHeaderView)
+//            stretchHeaderView.frame = CGRect(x: 0, y: offset - UIScreen.navigationHeight, width: UIScreen.screenWidth, height: 128)
+//
+//        } else {
+//            self.tableView.bringSubview(toFront: bookDeatilBasicView)
+//            stretchHeaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 128)
+//        }
     }
 }
