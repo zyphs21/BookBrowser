@@ -12,6 +12,7 @@ class StretchHeaderView: UIView {
 
     var backgroudImageView: UIImageView!
     var effectView: UIVisualEffectView!
+    var label: UILabel!
     var contentSize = CGSize.zero
     
     
@@ -32,6 +33,14 @@ class StretchHeaderView: UIView {
         effectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         effectView.frame = backgroudImageView.bounds
         backgroudImageView.addSubview(effectView)
+        
+        label = UILabel()
+        label.textColor = UIColor.white
+        addSubview(label)
+        label.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.snp.bottom).offset(0)
+        }
 
     }
     

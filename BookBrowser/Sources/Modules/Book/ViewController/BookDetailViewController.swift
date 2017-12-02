@@ -61,6 +61,7 @@ extension BookDetailViewController {
 //        navigationView.isHidden = true
         
         stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: stretchHeaderViewHeight), blurAreaHeight: stretchHeaderViewHeight)
+        stretchHeaderView.label.text = book.title
         if let imageUrl = URL(string: book.images.medium) {
             stretchHeaderView.backgroudImageView.kf.setImage(with: imageUrl, options: nil, progressBlock: nil, completionHandler: nil)
         }
@@ -157,36 +158,48 @@ extension BookDetailViewController {
         
         let offset: CGFloat = scrollView.contentOffset.y
         var headerTransform = CATransform3DIdentity
+//        var bookCoverTransform = CATransform3DIdentity
         stretchHeaderView.updateOffset(contentOffsetX: offset)
         dPrint("offSet--" + "\(offset)")
         
         // pull down
         if offset < 0 {
-            let headerScaleFactor: CGFloat = -(offset) / stretchHeaderViewHeight
-            let headerSizevariation = ((stretchHeaderViewHeight * (1.0 + headerScaleFactor)) - stretchHeaderViewHeight)/2.0
-            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
-            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
-            
+//            let headerScaleFactor: CGFloat = -(offset) / stretchHeaderViewHeight
+//            let headerSizevariation = ((stretchHeaderViewHeight * (1.0 + headerScaleFactor)) - stretchHeaderViewHeight)/2.0
+//            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+//            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
+
+            headerTransform = CATransform3DTranslate(headerTransform, 0, -offset, 0)
             stretchHeaderView.layer.transform = headerTransform
             
         } else {
+            
             headerTransform = CATransform3DTranslate(headerTransform, 0, max(-stretchHeaderStopOffset, -offset), 0)
             
+            let labelTransform = CATransform3DMakeTranslation(0, max(-30, UIScreen.navigationHeight - offset), 0)
+            stretchHeaderView.label.layer.transform = labelTransform
+            
+//            let avatarScaleFactor = (min(stretchHeaderViewHeight, offset)) / 142 / 1.4 // Slow down the animation
+//            let avatarSizeVariation = ((142 * (1.0 + avatarScaleFactor)) - 142) / 2.0
+//            bookCoverTransform = CATransform3DTranslate(bookCoverTransform, 0, avatarSizeVariation, 0)
+//            bookCoverTransform = CATransform3DScale(bookCoverTransform, 1.0 - avatarScaleFactor, 1.0 - avatarScaleFactor, 0)
+            
             if offset <= stretchHeaderStopOffset {
-                stretchHeaderView.layer.zPosition = 0
-//                if avatarImage.layer.zPosition < header.layer.zPosition{
-//                    header.layer.zPosition = 0
-//                }
+//                stretchHeaderView.layer.zPosition = 0
+                if bookDeatilBasicView.layer.zPosition < stretchHeaderView.layer.zPosition{
+                    stretchHeaderView.layer.zPosition = 0
+                }
                 
             } else {
-//                if avatarImage.layer.zPosition >= header.layer.zPosition{
-//                    header.layer.zPosition = 2
-//                }
-                stretchHeaderView.layer.zPosition = 2
+                if bookDeatilBasicView.layer.zPosition >= stretchHeaderView.layer.zPosition{
+                    stretchHeaderView.layer.zPosition = 2
+                }
+//                stretchHeaderView.layer.zPosition = 2
             }
         }
         
         stretchHeaderView.layer.transform = headerTransform
+//        bookDeatilBasicView.bookCover.layer.transform = bookCoverTransform
         
         
 //        if (offset > UIScreen.navigationHeight) {
