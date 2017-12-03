@@ -15,8 +15,9 @@ class BookDetailBasicView: UIView {
     var bookAuthor: UILabel!
     var rateHolderView: UIView!
     var rate: UILabel!
-//    var summaryLabel: UILabel!
-//    var summary: UILabel!
+    
+    static let bookCoverHeight: CGFloat = 142
+    static let bookCoverWidth: CGFloat = 100
     
     
     // Initial
@@ -45,7 +46,6 @@ extension BookDetailBasicView {
         bookAuthor.text = book.author.joined(separator: ",")
         rate.text = String(book.rating.average)
         RatingView.showInView(view: rateHolderView, value: book.rating.average/2)
-//        summary.text = book.summary
     }
 }
 
@@ -64,8 +64,8 @@ extension BookDetailBasicView {
         bookCover.snp.makeConstraints { (make) in
             make.top.equalTo(-42)
             make.left.equalTo(20)
-            make.height.equalTo(142)
-            make.width.equalTo(100)
+            make.height.equalTo(BookDetailBasicView.bookCoverHeight)
+            make.width.equalTo(BookDetailBasicView.bookCoverWidth)
         }
         
         bookName = UILabel()
@@ -103,29 +103,5 @@ extension BookDetailBasicView {
                 make.centerY.equalTo(rateHolderView)
                 make.left.equalTo(rateHolderView.snp.right).offset(4)
             })
-        
-//        summaryLabel = UILabel()
-//            .hs.adhere(toSuperView: self)
-//            .hs.config({ (label) in
-//                label.font = UIFont.systemFont(ofSize: 16)
-//                label.textColor = UIColor.hs.orange
-//                label.text = "简介："
-//            })
-//            .hs.layout(snapKitMaker: { (make) in
-//                make.top.equalTo(bookCover.snp.bottom).offset(10)
-//                make.left.equalTo(bookCover.snp.left)
-//            })
-//        summary = UILabel()
-//            .hs.adhere(toSuperView: self)
-//            .hs.config({ (label) in
-//                label.font = UIFont.systemFont(ofSize: 15)
-//                label.textColor = UIColor.hs.minorBlack
-//                label.numberOfLines = 5
-//            })
-//            .hs.layout(snapKitMaker: { (make) in
-//                make.top.equalTo(summaryLabel.snp.bottom).offset(5)
-//                make.left.equalTo(bookCover.snp.left)
-//                make.right.equalTo(-10)
-//            })
     }
 }
