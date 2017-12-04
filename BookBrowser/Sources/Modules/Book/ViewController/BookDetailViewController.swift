@@ -30,7 +30,7 @@ class BookDetailViewController: UIViewController {
     
     lazy var backButton: UIButton = { [unowned self] in
         let button = UIButton()
-//        scrollToTopBtn.addTarget(self, action: #selector(scrollToTop), for: .touchUpInside)
+        button.addTarget(self, action: #selector(naviBack), for: .touchUpInside)
         button.setImage(UIImage(named: "icon_back_white"), for: .normal)
         button.layer.cornerRadius = 15
         button.layer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
@@ -63,7 +63,6 @@ class BookDetailViewController: UIViewController {
 extension BookDetailViewController {
     
     private func setUpView() {
-        
         stretchHeaderView = StretchHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: stretchHeaderViewHeight), blurAreaHeight: stretchHeaderViewHeight)
         stretchHeaderView.label.text = book.title
         if let imageUrl = URL(string: book.images.medium) {
@@ -100,7 +99,10 @@ extension BookDetailViewController {
             make.top.equalTo(buttonY)
             make.left.equalTo(15)
         }
-        
+    }
+    
+    @objc private func naviBack() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
