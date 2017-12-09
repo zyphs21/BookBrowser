@@ -167,15 +167,16 @@ extension BookDetailViewController {
         var bookCoverTransform = CATransform3DIdentity
         dPrint("offSet--" + "\(offset)")
         
-        stretchHeaderView.updateOffset(contentOffsetX: offset)
+        stretchHeaderView.updateOffset(contentOffsetY: offset)
         
         // pull down
         if offset <= 0 {
             headerTransform = CATransform3DTranslate(headerTransform, 0, -offset, 0)
             stretchHeaderView.layer.transform = headerTransform
-            
+            stretchHeaderView.clipsToBounds = false
+
         } else {
-            
+            stretchHeaderView.clipsToBounds = true // 为了顶部题目label在向上滑动时候下面一半不被展示出来
             headerTransform = CATransform3DTranslate(headerTransform, 0, max(-stretchHeaderStopOffset, -offset), 0)
             
             let labelTransform = CATransform3DMakeTranslation(0, max(-30, UIScreen.navigationHeight - offset), 0)
@@ -194,6 +195,7 @@ extension BookDetailViewController {
                 tableView.layer.zPosition = 0
                 stretchHeaderView.layer.zPosition = 1
             }
+            
         }
         
         stretchHeaderView.layer.transform = headerTransform

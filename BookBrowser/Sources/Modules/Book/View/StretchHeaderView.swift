@@ -42,6 +42,7 @@ class StretchHeaderView: UIView {
             make.top.equalTo(self.snp.bottom).offset(0)
         }
 
+//        self.clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,9 +52,9 @@ class StretchHeaderView: UIView {
     
     // MARK: - Function
     
-    func updateOffset(contentOffsetX: CGFloat) {
-        if contentOffsetX < 0 {
-            backgroudImageView.frame = CGRect(x: contentOffsetX ,y: contentOffsetX, width: contentSize.width - (contentOffsetX * 2) , height: contentSize.height - contentOffsetX)
+    func updateOffset(contentOffsetY: CGFloat) {
+        if contentOffsetY < 0 {
+            backgroudImageView.frame = CGRect(x: contentOffsetY ,y: contentOffsetY, width: contentSize.width - (contentOffsetY * 2) , height: contentSize.height - contentOffsetY)
             effectView.frame = backgroudImageView.bounds
         } else {
             backgroudImageView.frame = CGRect(x: 0, y: 0, width: contentSize.width, height: contentSize.height)
