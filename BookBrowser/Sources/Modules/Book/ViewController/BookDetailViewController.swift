@@ -11,6 +11,13 @@ import UIKit
 enum BookDetailSection {
     case description
     case other
+    
+    var description: String {
+        switch self {
+        case .description: return "简介"
+        default: return "评论"
+        }
+    }
 }
 
 class BookDetailViewController: UIViewController {
@@ -23,7 +30,10 @@ class BookDetailViewController: UIViewController {
     
     private let stretchHeaderViewHeight: CGFloat = 128
     private let stretchHeaderStopOffset: CGFloat = 128 - UIScreen.navigationHeight
-    private var heightOfHeader: CGFloat = 222
+    private let heightOfBookDetailBasicView: CGFloat = 110
+    private var heightOfHeader: CGFloat {
+        return stretchHeaderViewHeight + heightOfBookDetailBasicView
+    }
     private let heightOfBlurArea: CGFloat = 60
     private let sections: [BookDetailSection] = [.description, .other]
     
@@ -70,7 +80,7 @@ extension BookDetailViewController {
         }
         self.view.addSubview(stretchHeaderView!)
         
-        bookDeatilBasicView = BookDetailBasicView(frame: CGRect(x: 0, y: stretchHeaderViewHeight, width: UIScreen.screenWidth, height: 150))
+        bookDeatilBasicView = BookDetailBasicView(frame: CGRect(x: 0, y: stretchHeaderViewHeight, width: UIScreen.screenWidth, height: heightOfBookDetailBasicView))
         bookDeatilBasicView.backgroundColor = UIColor.white
         bookDeatilBasicView.configureHeader(book: book)
         
@@ -79,9 +89,10 @@ extension BookDetailViewController {
             tableView.contentInsetAdjustmentBehavior = .never
         }
         tableView.tableFooterView = UIView()
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 278))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: heightOfHeader))
         tableView.backgroundColor = UIColor.clear
         tableView.register(UITableViewCell.self)
+        tableView.registerHeaderFooter(BookDetailSectionHeaderView.self)
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorInset = .zero
@@ -144,6 +155,16 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header: BookDetailSectionHeaderView = tableView.dequeueReusableHeaderFooter()
+        header.sectionTitle.text = sections[section].description
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
