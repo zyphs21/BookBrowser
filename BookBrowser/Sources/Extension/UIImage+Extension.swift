@@ -23,18 +23,4 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return img ?? UIImage()
     }
-    
-    //用于调整 UIImage的 size
-    //    func resizeImageWithSize(size: CGSize) -> UIImage {
-    
-    //        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-    //
-    //        draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-    //
-    //        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-    //
-    //        UIGraphicsEndImageContext()
-    //
-    //        return newImage!
-    //    }
 }
