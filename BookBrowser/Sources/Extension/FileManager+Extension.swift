@@ -16,7 +16,6 @@ extension FileManager {
         let manager = FileManager.default
         let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
         let pathString = appPath + text
-//        return url.appendingPathComponent(pathString, isDirectory: true)!.path
         return url.appendingPathComponent(pathString)!.path
     }
     
