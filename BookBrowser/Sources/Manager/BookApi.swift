@@ -21,6 +21,7 @@ enum BookApi {
     case book(id: String)
     case search(param: searchBookReqParam)
     case bookTags
+    case review(id: String, start: Int, count: Int)
 }
 
 extension BookApi: ApiTarget {
@@ -34,6 +35,8 @@ extension BookApi: ApiTarget {
             return baseURL + "book/" + id
         case .search:
             return baseURL + "book/search"
+        case .review(let id, _, _):
+            return baseURL + "book/" + id + "/reviews"
         default:
             return baseURL
         }
@@ -53,6 +56,14 @@ extension BookApi: ApiTarget {
                 "count": searchBookReqParam.count
             ]
             return parameters
+            
+        case .review(_, let start, let count):
+            let parameters: [String: Any] = [
+                "start": start,
+                "count": count
+            ]
+            return parameters
+            
         default:
             return nil
         }

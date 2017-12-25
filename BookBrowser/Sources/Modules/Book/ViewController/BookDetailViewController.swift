@@ -27,6 +27,7 @@ class BookDetailViewController: UIViewController {
     var tableView: UITableView!
     
     var book: Book = Book()
+    var reviews: [Review] = []
     
     private let stretchHeaderViewHeight: CGFloat = 128
     private let stretchHeaderStopOffset: CGFloat = 128 - UIScreen.navigationHeight
@@ -48,6 +49,7 @@ class BookDetailViewController: UIViewController {
         return button
     }()
     
+    
     // MARK: - Life Circle
     
     override func viewDidLoad() {
@@ -55,6 +57,7 @@ class BookDetailViewController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         
         setUpView()
+        getReviews()
     }
     
     override func didReceiveMemoryWarning() {
@@ -115,6 +118,18 @@ extension BookDetailViewController {
     @objc private func naviBack() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    private func getReviews() {
+        let reviewsTarget = BookApi.review(id: book.id, start: 0, count: 15)
+        ApiOperation.requestJSON(with: reviewsTarget) { [weak self] (json) in
+            guard let strongSelf = self, let json = json else {
+                return
+            }
+            dPrint(json.description)
+            strongSelf.reviews = Review.getReviews(json: json)
+            strongSelf.tableView.reloadData()
+        }
+    }
 }
 
 
@@ -131,7 +146,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
         case .description:
             return 1
         default:
-            return 20
+            return reviews.count
         }
     }
     
@@ -146,7 +161,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             let cell: UITableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.layoutMargins = .zero
-            cell.textLabel?.text = "test"
+            cell.textLabel?.text = reviews[indexPath.row].summary
             cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
             cell.accessoryType = .disclosureIndicator
             return cell
@@ -190,14 +205,13 @@ extension BookDetailViewController {
         
         stretchHeaderView.updateOffset(contentOffsetY: offset)
         
-        // pull down
         if offset <= 0 {
             headerTransform = CATransform3DTranslate(headerTransform, 0, -offset, 0)
             stretchHeaderView.layer.transform = headerTransform
             stretchHeaderView.clipsToBounds = false
 
         } else {
-            stretchHeaderView.clipsToBounds = true // 为了顶部题目label在向上滑动时候下面一半不被展示出来
+            stretchHeaderView.clipsToBounds = true // 为了解决顶部题目label在向上滑动时候下面一半不被展示出来
             headerTransform = CATransform3DTranslate(headerTransform, 0, max(-stretchHeaderStopOffset, -offset), 0)
             
             let labelTransform = CATransform3DMakeTranslation(0, max(-30, UIScreen.navigationHeight - offset), 0)

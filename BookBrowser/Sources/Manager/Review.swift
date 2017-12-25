@@ -7,38 +7,51 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class Review : NSObject {
+struct Review {
+    var id = ""
+    var alt = "" // 评论详情 URL
+    var published = "" //评论发表时间
+    var useless = 0
+    var summary = ""
+    var comments = 0
+    var updated = "" //上一次更新评论时间
+    var title = ""
+    var author = Author() //评论作者信息
+    var votes = 0
+    var rating = Rating() //评论评分
     
-//    var id         = 0
-//    var title      = ""
-//    var alt        = ""       //html格式,评论详情url
-//    var author     = Author() //评论作者信息
-//    var votes      = 0
-//    var useless    = 0
-//    var comments   = 0         //评论数量
-//    var summary    = ""        //评论摘要
-//    var published  = ""        //评论发表时间
-//    var updated    = ""        //上一次更新评论时间
-//    var rating:RateStar?        //评论评分
-//    
-//    init(dict:[String:NSObject]) {
-//        id = dict["id"] as? Int ?? 0
-//        title = dict["title"] as? String ?? ""
-//        alt = dict["alt"] as? String ?? ""
-//        if let authorDict = dict["author"] as? [String:AnyObject] {
-//            author = Author(dict:authorDict)
-//        }
-//        if let ratingDict = dict["rating"] as? [String:NSObject] {
-//            rating = RateStar(dict: ratingDict)
-//        }
-//        votes = dict["votes"] as? Int ?? 0
-//        useless = dict["useless"] as? Int ?? 0
-//        comments = dict["comments"] as? Int ?? 0
-//        summary = dict["summary"] as? String ?? ""
-//        published = dict["published"] as? String ?? ""
-//        updated = dict["updated"] as? String ?? ""
-//    }
+    static func getReview(json: JSON) -> Review {
+        var review = Review()
+        review.id = json["id"].stringValue
+        review.alt =  json["alt"].stringValue
+        review.published = json["published"].stringValue
+        review.useless = json["useless"].intValue
+        review.summary = json["summary"].stringValue
+        review.comments = json["comments"].intValue
+        review.updated = json["updated"].stringValue
+        review.title = json["title"].stringValue
+        review.votes = json["votes"].intValue
+        review.author = Author.getAuthor(json: json["author"])
+        review.rating.max = json["rating"]["max"].intValue
+        review.rating.min = json["rating"]["min"].intValue
+        review.rating.value = json["rating"]["value"].stringValue
+        
+        return review
+    }
+    
+    static func getReviews(json: JSON) -> [Review] {
+        var reviews = [Review]()
+        for (_, subJson) in json["reviews"] {
+            reviews.append(Review.getReview(json: subJson))
+        }
+        return reviews
+    }
+}
 
-    
+struct Rating {
+    var max = 5
+    var min = 0
+    var value = ""
 }

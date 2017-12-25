@@ -7,35 +7,32 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class Author: NSObject {
-//    
-//    var alt          = ""
-//    var avatar       = ""
-//    var id           = 0
-//    var is_banned    = false
-//    var is_suicide   = false
-//    var large_avatar = ""
-//    var name         = ""
-//    var type         = ""
-//    var uid          = ""
-//    var url          = ""
-//    
-//    init(dict:[String:AnyObject]) {
-//        alt = dict["alt"] as? String ?? ""
-//        avatar = dict["avatar"] as? String ?? ""
-//        id = dict["id"] as? Int ?? 0
-//        is_banned = (dict["is_banned"] as? Int ?? 0) == 1
-//        is_suicide = [dict["is_suicide"] as? Int ?? 0] == 1
-//        large_avatar = dict["large_avatar"] as? String ?? ""
-//        name = dict["name"] as? String ?? ""
-//        type = dict["type"] as? String ?? ""
-//        uid = dict["uid"] as? String ?? ""
-//        url = dict["url"] as? String ?? ""
-//    }
-//    
-//    override init() {
-//        
-//    }
+struct Author {
+    var name = ""
+    var isBanned = false
+    var isSuicide = false
+    var url = ""
+    var avatar = ""
+    var uid = ""
+    var alt = ""
+    var type = "" // user
+    var id = ""
+    var largeAvatar = ""
     
+    static func getAuthor(json: JSON) -> Author {
+        var author = Author()
+        author.name = json["name"].stringValue
+        author.isBanned = json["is_banned"].boolValue
+        author.isSuicide = json["is_suicide"].boolValue
+        author.url = json["url"].stringValue
+        author.avatar = json["avatar"].stringValue
+        author.uid = json["uid"].stringValue
+        author.alt = json["alt"].stringValue
+        author.type = json["type"].stringValue
+        author.id = json["id"].stringValue
+        author.largeAvatar = json["large_avatar"].stringValue
+        return author
+    }
 }
