@@ -55,7 +55,7 @@ class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        
+        view.backgroundColor = UIColor.white
         setUpView()
         getReviews()
     }
@@ -157,6 +157,8 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
         case .description:
             let cell: UITableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.textLabel?.numberOfLines = 4
+            cell.textLabel?.textColor = UIColor.hs.minorFontBlack
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
             cell.textLabel?.text = book.summary
             cell.selectionStyle = .none
             return cell

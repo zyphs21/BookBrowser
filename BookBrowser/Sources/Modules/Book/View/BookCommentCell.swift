@@ -60,7 +60,7 @@ extension BookCommentCell {
                 label.textColor = UIColor.hs.minorFontBlack
             })
             .hs.layout(snapKitMaker: { (make) in
-                make.top.equalTo(avatarView.snp.top).offset(5)
+                make.top.equalTo(avatarView.snp.top).offset(2)
                 make.left.equalTo(avatarView.snp.right).offset(10)
             })
         rateHolderView = UIView()
@@ -68,7 +68,7 @@ extension BookCommentCell {
             .hs.layout(snapKitMaker: { (make) in
                 make.height.equalTo(12)
                 make.width.equalTo(68)
-                make.bottom.equalTo(avatarView.snp.bottom).offset(-5)
+                make.bottom.equalTo(avatarView.snp.bottom).offset(-2)
                 make.left.equalTo(author.snp.left)
             })
         rate = UILabel()

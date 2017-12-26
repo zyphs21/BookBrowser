@@ -51,20 +51,20 @@ extension BookTableViewCell {
             .hs.adhere(toSuperView: contentView)
             .hs.config({ (view) in
                 view.backgroundColor = UIColor.clear
-                view.layer.shadowColor = UIColor(rgba: "#CCCCCC").cgColor
+                view.layer.shadowColor = UIColor.hs.shadowColor.cgColor
                 view.layer.shadowOpacity = 1
                 view.layer.shadowRadius = 5
                 view.layer.shadowOffset = CGSize.zero
                 view.layer.masksToBounds = false
             })
             .hs.layout { (make) in
-                make.edges.equalTo(UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
+                make.edges.equalTo(UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15))
         }
         
         holdView = UIView()
             .hs.adhere(toSuperView: shadowView)
             .hs.config({ (view) in
-                view.backgroundColor = UIColor(rgba: "#FCFCFF")
+                view.backgroundColor = UIColor.white
                 view.layer.cornerRadius = 8
                 view.layer.masksToBounds = true
             })
@@ -123,7 +123,7 @@ extension BookTableViewCell {
             .hs.adhere(toSuperView: holdView)
             .hs.config({ (label) in
                 label.font = UIFont.systemFont(ofSize: 12)
-                label.textColor = UIColor(rgba: "#DDDDDD")
+                label.textColor = UIColor.hs.minorFontLightBlack
                 label.numberOfLines = 0
             })
             .hs.layout(snapKitMaker: { (make) in

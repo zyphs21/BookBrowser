@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         tableView = UITableView()
+        tableView.backgroundColor = UIColor.hs.backgroundColor
         tableView.register(BookTableViewCell.self)
         tableView.separatorStyle = .none
         tableView.delegate = self
