@@ -47,9 +47,10 @@ extension BookCommentCell {
             .hs.adhere(toSuperView: contentView)
             .hs.config({ (imageView) in
                 imageView.layer.cornerRadius = 20
+                imageView.layer.masksToBounds = true
             })
             .hs.layout(snapKitMaker: { (make) in
-                make.top.left.equalTo(10)
+                make.top.left.equalTo(20)
                 make.width.height.equalTo(40)
             })
         author = UILabel()
@@ -60,7 +61,7 @@ extension BookCommentCell {
             })
             .hs.layout(snapKitMaker: { (make) in
                 make.top.equalTo(avatarView.snp.top).offset(5)
-                make.left.equalTo(avatarView.snp.right).offset(20)
+                make.left.equalTo(avatarView.snp.right).offset(10)
             })
         rateHolderView = UIView()
             .hs.adhere(toSuperView: contentView)
@@ -68,7 +69,7 @@ extension BookCommentCell {
                 make.height.equalTo(12)
                 make.width.equalTo(68)
                 make.bottom.equalTo(avatarView.snp.bottom).offset(-5)
-                make.left.equalTo(avatarView.snp.right).offset(20)
+                make.left.equalTo(author.snp.left)
             })
         rate = UILabel()
             .hs.adhere(toSuperView: contentView)
@@ -101,9 +102,9 @@ extension BookCommentCell {
             })
             .hs.layout(snapKitMaker: { (make) in
                 make.top.equalTo(title.snp.bottom).offset(5)
-                make.right.equalTo(-10)
+                make.right.equalTo(-20)
                 make.left.equalTo(title.snp.left)
-                make.bottom.equalTo(-5)
+                make.bottom.equalTo(-10)
             })
     }
 }
