@@ -10,7 +10,7 @@ import UIKit
 
 class BookDetailSectionHeaderView: UITableViewHeaderFooterView {
 
-    var markView: UIView!
+    var topLineView: UIView!
     var sectionTitle: UILabel!
     
     override init(reuseIdentifier: String?) {
@@ -28,26 +28,24 @@ class BookDetailSectionHeaderView: UITableViewHeaderFooterView {
 extension BookDetailSectionHeaderView {
     
     private func setUpView() {
-        markView = UIView()
+        topLineView = UIView()
             .hs.adhere(toSuperView: contentView)
             .hs.config({ (view) in
-                view.backgroundColor = UIColor.blue
+                view.backgroundColor = UIColor.hs.separateColor
             })
             .hs.layout { (make) in
-                make.centerY.equalToSuperview()
-                make.left.equalToSuperview()
-                make.width.equalTo(10)
-                make.height.equalTo(20)
+                make.top.left.right.equalToSuperview()
+                make.height.equalTo(0.5)
             }
         sectionTitle = UILabel()
             .hs.adhere(toSuperView: contentView)
             .hs.config({ (label) in
-                label.font = UIFont.systemFont(ofSize: 13)
+                label.font = UIFont.systemFont(ofSize: 15)
                 label.textColor = UIColor.hs.minorBlack
             })
             .hs.layout(snapKitMaker: { (make) in
                 make.centerY.equalToSuperview()
-                make.left.equalTo(markView.snp.right).offset(8)
+                make.left.equalTo(20)
             })
     }
 }

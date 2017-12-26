@@ -94,12 +94,14 @@ extension BookDetailViewController {
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: heightOfHeader))
         tableView.backgroundColor = UIColor.clear
+        tableView.register(BookCommentCell.self)
         tableView.register(UITableViewCell.self)
         tableView.registerHeaderFooter(BookDetailSectionHeaderView.self)
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorInset = .zero
         tableView.layoutMargins = .zero
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
         tableView.addSubview(bookDeatilBasicView)
@@ -159,11 +161,8 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         default:
-            let cell: UITableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.layoutMargins = .zero
-            cell.textLabel?.text = reviews[indexPath.row].summary
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
-            cell.accessoryType = .disclosureIndicator
+            let cell: BookCommentCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.configureCell(review: reviews[indexPath.row])
             return cell
         }
     }

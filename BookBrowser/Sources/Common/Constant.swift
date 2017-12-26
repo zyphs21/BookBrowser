@@ -39,6 +39,10 @@ extension NamespaceWrapper where WrappedType == UIColor {
     public static let minorBlack = UIColor(rgba: "#999999")
     public static let orange = UIColor(rgba: "#DF912B")
     public static let shadowColor = UIColor(rgba: "#CCCCCC")
+    public static let separateColor = UIColor(rgba: "#D9DADC")
+    public static let mainFontBlack = UIColor(rgba: "#1F1F1F")
+    public static let minorFontBlack = UIColor(rgba: "#353535")
+    public static let minorFontLightBlack = UIColor(rgba: "#838383")
 }
 
 struct BBConstant {

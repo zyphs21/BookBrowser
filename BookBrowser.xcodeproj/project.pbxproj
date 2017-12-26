@@ -44,6 +44,7 @@
 		C0DDE1A81FA778D0008DF5FE /* ApiTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */; };
 		C0DDE1AA1FA778F9008DF5FE /* ApiOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */; };
 		C0DDE1AC1FA77971008DF5FE /* BookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1AB1FA77971008DF5FE /* BookApi.swift */; };
+		C0F3715A1FF2BB1E0094F2B1 /* BookCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F371591FF2BB1E0094F2B1 /* BookCommentCell.swift */; };
 		C0FC20F31FB163330087BCDA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC20F21FB163330087BCDA /* UIColor+Extension.swift */; };
 		C0FF016E1FDE1F9F001850EE /* BookDetailSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF016D1FDE1F9F001850EE /* BookDetailSectionHeaderView.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTarget.swift; sourceTree = "<group>"; };
 		C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiOperation.swift; sourceTree = "<group>"; };
 		C0DDE1AB1FA77971008DF5FE /* BookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApi.swift; sourceTree = "<group>"; };
+		C0F371591FF2BB1E0094F2B1 /* BookCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCommentCell.swift; sourceTree = "<group>"; };
 		C0FC20F21FB163330087BCDA /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C0FF016D1FDE1F9F001850EE /* BookDetailSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailSectionHeaderView.swift; sourceTree = "<group>"; };
 		C45F233BF8A7055B71BF2C54 /* Pods-BookBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookBrowser/Pods-BookBrowser.release.xcconfig"; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				C0BF2F191FC7B5A10075BB2B /* BookDetailBasicView.swift */,
 				C031DE531FC27C04005B424C /* BookDetailHeaderView.swift */,
 				C0FF016D1FDE1F9F001850EE /* BookDetailSectionHeaderView.swift */,
+				C0F371591FF2BB1E0094F2B1 /* BookCommentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				C0FF016E1FDE1F9F001850EE /* BookDetailSectionHeaderView.swift in Sources */,
 				C0237CB71FA2E0A200856C1C /* RatingView.swift in Sources */,
 				C0237CAF1FA2E0A200856C1C /* Author.swift in Sources */,
+				C0F3715A1FF2BB1E0094F2B1 /* BookCommentCell.swift in Sources */,
 				C0DDE1AA1FA778F9008DF5FE /* ApiOperation.swift in Sources */,
 				C0DDE1AC1FA77971008DF5FE /* BookApi.swift in Sources */,
 				C09DC5281FC3FDC900B69E61 /* FocusViewType.swift in Sources */,
