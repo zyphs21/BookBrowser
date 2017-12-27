@@ -124,8 +124,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: BarcodeScannerCodeDelegate {
     
     func barcodeScanner(_ controller: BarcodeScannerController, didCaptureCode code: String, type: String) {
-        print(code)
-        controller.reset()
+        dPrint("扫描结果：" + code)
+        let requestTarget = BookApi.bookISBN(isbn: code)
+        ApiOperation.requestJSON(with: requestTarget) { [weak self] (json) in
+            guard let strongSelf = self else { return }
+            if let json = json {
+                let book = Book.getBook(json)
+                controller.dismiss(animated: true, completion: {
+                    let bookVC = BookDetailViewController()
+                    bookVC.book = book
+                    strongSelf.navigationController?.pushViewController(bookVC, animated: true)
+                })
+            }
+        }
+        
     }
 }
 

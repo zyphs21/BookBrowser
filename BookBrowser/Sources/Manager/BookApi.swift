@@ -19,6 +19,7 @@ struct searchBookReqParam {
 
 enum BookApi {
     case book(id: String)
+    case bookISBN(isbn: String)
     case search(param: searchBookReqParam)
     case bookTags
     case review(id: String, start: Int, count: Int)
@@ -33,6 +34,8 @@ extension BookApi: ApiTarget {
         switch self {
         case .book(let id):
             return baseURL + "book/" + id
+        case .bookISBN(let isbn):
+            return baseURL + "book/isbn/" + isbn
         case .search:
             return baseURL + "book/search"
         case .review(let id, _, _):
