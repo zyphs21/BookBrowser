@@ -135,6 +135,8 @@ extension HomeViewController: BarcodeScannerCodeDelegate {
                     bookVC.book = book
                     strongSelf.navigationController?.pushViewController(bookVC, animated: true)
                 })
+            } else {
+                controller.resetWithError(message: "查询失败")
             }
         }
         

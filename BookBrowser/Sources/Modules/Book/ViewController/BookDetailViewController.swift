@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 enum BookDetailSection {
     case description
@@ -127,7 +128,6 @@ extension BookDetailViewController {
             guard let strongSelf = self, let json = json else {
                 return
             }
-            dPrint(json.description)
             strongSelf.reviews = Review.getReviews(json: json)
             strongSelf.tableView.reloadData()
         }
@@ -171,6 +171,10 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if let url = URL(string: reviews[indexPath.row].alt) {
+            let vc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
+            present(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -202,7 +206,6 @@ extension BookDetailViewController {
         let offset: CGFloat = scrollView.contentOffset.y
         var headerTransform = CATransform3DIdentity
         var bookCoverTransform = CATransform3DIdentity
-        dPrint("offSet--" + "\(offset)")
         
         stretchHeaderView.updateOffset(contentOffsetY: offset)
         
