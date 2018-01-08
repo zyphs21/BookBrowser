@@ -43,7 +43,7 @@ class BookDetailViewController: UIViewController {
     lazy var backButton: UIButton = { [unowned self] in
         let button = UIButton()
         button.addTarget(self, action: #selector(naviBack), for: .touchUpInside)
-        button.setImage(UIImage(named: "icon_back_white"), for: .normal)
+        button.setImage(Asset.iconBackWhite.image, for: .normal)
         button.layer.cornerRadius = 15
         button.layer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
         

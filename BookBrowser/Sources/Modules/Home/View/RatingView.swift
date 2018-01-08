@@ -51,8 +51,8 @@ class RatingView: UIView {
         super.init(frame: frame)
         for i in 0...4 {
             let i = Double(i)
-            let emptyImageView = UIImageView(image: UIImage(named: "star_empty"))
-            let fullImageView = UIImageView(image: UIImage(named: "star_full"))
+            let emptyImageView = UIImageView(image: Asset.starEmpty.image)
+            let fullImageView = UIImageView(image: Asset.starFull.image)
             let frame = CGRect(x: starHeight * i + starSpace * i, y: 0, width: starHeight, height: starHeight)
             emptyImageView.frame = frame
             fullImageView.frame = frame

@@ -41,6 +41,8 @@
 		C0CEE72C1FB148F80027C606 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEE72B1FB148F80027C606 /* Common.swift */; };
 		C0D54DEF1FB031AB00013E93 /* NameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D54DEE1FB031AB00013E93 /* NameSpace.swift */; };
 		C0D54DF11FB0321B00013E93 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D54DF01FB0321B00013E93 /* Layout.swift */; };
+		C0DB895D200318D5004893AF /* StringConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB895B200318D5004893AF /* StringConst.swift */; };
+		C0DB895E200318D5004893AF /* ImagesConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB895C200318D5004893AF /* ImagesConst.swift */; };
 		C0DDE1A81FA778D0008DF5FE /* ApiTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */; };
 		C0DDE1AA1FA778F9008DF5FE /* ApiOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */; };
 		C0DDE1AC1FA77971008DF5FE /* BookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDE1AB1FA77971008DF5FE /* BookApi.swift */; };
@@ -89,6 +91,8 @@
 		C0CEE72B1FB148F80027C606 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		C0D54DEE1FB031AB00013E93 /* NameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSpace.swift; sourceTree = "<group>"; };
 		C0D54DF01FB0321B00013E93 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		C0DB895B200318D5004893AF /* StringConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConst.swift; sourceTree = "<group>"; };
+		C0DB895C200318D5004893AF /* ImagesConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesConst.swift; sourceTree = "<group>"; };
 		C0DDE1A71FA778D0008DF5FE /* ApiTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTarget.swift; sourceTree = "<group>"; };
 		C0DDE1A91FA778F9008DF5FE /* ApiOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiOperation.swift; sourceTree = "<group>"; };
 		C0DDE1AB1FA77971008DF5FE /* BookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApi.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 		C0237C8F1FA2E0A200856C1C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C0DB895C200318D5004893AF /* ImagesConst.swift */,
+				C0DB895B200318D5004893AF /* StringConst.swift */,
 				C0D54DEE1FB031AB00013E93 /* NameSpace.swift */,
 				C0D54DF01FB0321B00013E93 /* Layout.swift */,
 				C0CEE72B1FB148F80027C606 /* Common.swift */,
@@ -352,6 +358,7 @@
 				8A72C9013B0B755BE4FAAA3B /* [CP] Embed Pods Frameworks */,
 				5425898BCC9DB0663EB4DC5B /* [CP] Copy Pods Resources */,
 				C014ED5D1FA17D3A00F9E3B4 /* ShellScript */,
+				C0DB895A20031850004893AF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -484,6 +491,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" d344c7e8483cfe40cef67d9d7a965fbef679d80d 776a4f3b1e67f867c0e364876e9cf14dd68bb57a227f70bb7ecdc0d7fcbae80f";
 		};
+		C0DB895A20031850004893AF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\nset -e\nswiftgen strings -t my-flat-swift4 \"$PROJECT_DIR/BookBrowser/SupportFiles/zh-Hans.lproj/Localizable.strings\" --output \"$PROJECT_DIR/BookBrowser/Sources/Common/StringConst.swift\"\nswiftgen xcassets -t my-swift4 \"$PROJECT_DIR/BookBrowser/SupportFiles/Assets.xcassets\" --output \"$PROJECT_DIR/BookBrowser/Sources/Common/ImagesConst.swift\"\nelse\necho \"warning: SwiftGen not installed,  download it from https://github.com/SwiftGen/SwiftGen\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -496,6 +516,7 @@
 				C0237CAD1FA2E0A200856C1C /* Review.swift in Sources */,
 				C0C720341FA334E30023922E /* BasicNavigationViewController.swift in Sources */,
 				C0FC20F31FB163330087BCDA /* UIColor+Extension.swift in Sources */,
+				C0DB895D200318D5004893AF /* StringConst.swift in Sources */,
 				C09DC5291FC3FDC900B69E61 /* State.swift in Sources */,
 				C0C15BDA1FB94ECA00CFBEA7 /* Constant.swift in Sources */,
 				C0FF016E1FDE1F9F001850EE /* BookDetailSectionHeaderView.swift in Sources */,
@@ -507,6 +528,7 @@
 				C09DC5281FC3FDC900B69E61 /* FocusViewType.swift in Sources */,
 				C0A6A66E1FA94E710075CE06 /* HomeViewController.swift in Sources */,
 				C0CEE72C1FB148F80027C606 /* Common.swift in Sources */,
+				C0DB895E200318D5004893AF /* ImagesConst.swift in Sources */,
 				C09DC52D1FC3FDC900B69E61 /* InfoView.swift in Sources */,
 				C0D54DEF1FB031AB00013E93 /* NameSpace.swift in Sources */,
 				C09DC52C1FC3FDC900B69E61 /* Config.swift in Sources */,
