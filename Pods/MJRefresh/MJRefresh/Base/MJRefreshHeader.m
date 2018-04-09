@@ -54,6 +54,7 @@
     
     // 在刷新的refreshing状态
     if (self.state == MJRefreshStateRefreshing) {
+        // 暂时保留
         if (self.window == nil) return;
         
         // sectionheader停留解决
@@ -66,7 +67,7 @@
     }
     
     // 跳转到下一个控制器时，contentInset可能会变
-     _scrollViewOriginalInset = self.scrollView.contentInset;
+     _scrollViewOriginalInset = self.scrollView.mj_inset;
     
     // 当前的contentOffset
     CGFloat offsetY = self.scrollView.mj_offsetY;
@@ -118,6 +119,10 @@
             if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
         } completion:^(BOOL finished) {
             self.pullingPercent = 0.0;
+            
+            if (self.endRefreshingCompletionBlock) {
+                self.endRefreshingCompletionBlock();
+            }
         }];
     } else if (state == MJRefreshStateRefreshing) {
          dispatch_async(dispatch_get_main_queue(), ^{
@@ -126,7 +131,9 @@
                 // 增加滚动区域top
                 self.scrollView.mj_insetT = top;
                 // 设置滚动位置
-                [self.scrollView setContentOffset:CGPointMake(0, -top) animated:NO];
+                CGPoint offset = self.scrollView.contentOffset;
+                offset.y = -top;
+                [self.scrollView setContentOffset:offset animated:NO];
             } completion:^(BOOL finished) {
                 [self executeRefreshingCallback];
             }];
@@ -135,17 +142,6 @@
 }
 
 #pragma mark - 公共方法
-- (void)endRefreshing
-{
-    if ([self.scrollView isKindOfClass:[UICollectionView class]]) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [super endRefreshing];
-        });
-    } else {
-        [super endRefreshing];
-    }
-}
-
 - (NSDate *)lastUpdatedTime
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:self.lastUpdatedTimeKey];
