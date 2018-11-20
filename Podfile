@@ -3,9 +3,9 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'BookBrowser' do
-    pod 'Kingfisher', '~> 4.0'
-    pod 'Alamofire', '~> 4.5'
-    pod 'SnapKit', '~> 4.0.0'
+    pod 'Kingfisher', '~> 4.10'
+    pod 'Alamofire', '~> 4.7'
+    pod 'SnapKit'
     pod 'SwiftyJSON'
     pod 'SVProgressHUD'
     pod 'Fabric'
