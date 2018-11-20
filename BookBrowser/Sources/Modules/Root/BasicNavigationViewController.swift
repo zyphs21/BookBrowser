@@ -21,7 +21,7 @@ class BasicNavigationViewController: UINavigationController, UIGestureRecognizer
     }
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        if childViewControllers.count > 0 {
+        if children.count > 0 {
 //            viewController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
 //            viewController.navigationItem.leftBarButtonItems = backButtonItem // 自定义返回按钮
             viewController.hidesBottomBarWhenPushed = true

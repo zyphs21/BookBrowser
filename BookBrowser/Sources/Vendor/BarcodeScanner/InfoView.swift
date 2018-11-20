@@ -141,7 +141,7 @@ class InfoView: UIVisualEffectView {
 
    - Parameter style: The current blur style.
    */
-  func animate(blurStyle style: UIBlurEffectStyle) {
+    func animate(blurStyle style: UIBlurEffect.Style) {
     guard status.state == .processing else { return }
 
     UIView.animate(withDuration: 2.0, delay: 0.5, options: [.beginFromCurrentState],
