@@ -15,20 +15,17 @@
 
 @implementation UIScrollView (MJExtension)
 
-static BOOL respondsToAdjustedContentInset_;
-
-+ (void)initialize
+static BOOL gt_ios_11_;
++ (void)load
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        respondsToAdjustedContentInset_ = [self instancesRespondToSelector:@selector(adjustedContentInset)];
-    });
+    // 缓存判断值
+    gt_ios_11_ = [[[UIDevice currentDevice] systemVersion] compare:@"11.0" options:NSNumericSearch] != NSOrderedAscending;
 }
 
 - (UIEdgeInsets)mj_inset
 {
 #ifdef __IPHONE_11_0
-    if (respondsToAdjustedContentInset_) {
+    if (gt_ios_11_) {
         return self.adjustedContentInset;
     }
 #endif
@@ -40,7 +37,7 @@ static BOOL respondsToAdjustedContentInset_;
     UIEdgeInsets inset = self.contentInset;
     inset.top = mj_insetT;
 #ifdef __IPHONE_11_0
-    if (respondsToAdjustedContentInset_) {
+    if (gt_ios_11_) {
         inset.top -= (self.adjustedContentInset.top - self.contentInset.top);
     }
 #endif
@@ -57,7 +54,7 @@ static BOOL respondsToAdjustedContentInset_;
     UIEdgeInsets inset = self.contentInset;
     inset.bottom = mj_insetB;
 #ifdef __IPHONE_11_0
-    if (respondsToAdjustedContentInset_) {
+    if (gt_ios_11_) {
         inset.bottom -= (self.adjustedContentInset.bottom - self.contentInset.bottom);
     }
 #endif
@@ -74,7 +71,7 @@ static BOOL respondsToAdjustedContentInset_;
     UIEdgeInsets inset = self.contentInset;
     inset.left = mj_insetL;
 #ifdef __IPHONE_11_0
-    if (respondsToAdjustedContentInset_) {
+    if (gt_ios_11_) {
         inset.left -= (self.adjustedContentInset.left - self.contentInset.left);
     }
 #endif
@@ -91,7 +88,7 @@ static BOOL respondsToAdjustedContentInset_;
     UIEdgeInsets inset = self.contentInset;
     inset.right = mj_insetR;
 #ifdef __IPHONE_11_0
-    if (respondsToAdjustedContentInset_) {
+    if (gt_ios_11_) {
         inset.right -= (self.adjustedContentInset.right - self.contentInset.right);
     }
 #endif

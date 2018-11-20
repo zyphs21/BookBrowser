@@ -31,7 +31,7 @@ open class TaskDelegate: NSObject {
     // MARK: Properties
 
     /// The serial operation queue used to execute all operations after the task completes.
-    public let queue: OperationQueue
+    open let queue: OperationQueue
 
     /// The data returned by the server.
     public var data: Data? { return nil }

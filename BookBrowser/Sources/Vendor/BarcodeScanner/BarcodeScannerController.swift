@@ -68,11 +68,11 @@ open class BarcodeScannerController: UIViewController {
     let button = UIButton(type: .system)
     let title = NSAttributedString(string: SettingsButton.text,
       attributes: [
-        NSAttributedString.Key.font : SettingsButton.font,
-        NSAttributedString.Key.foregroundColor : SettingsButton.color,
+        NSAttributedStringKey.font : SettingsButton.font,
+        NSAttributedStringKey.foregroundColor : SettingsButton.color,
       ])
 
-    button.setAttributedTitle(title, for: UIControl.State())
+    button.setAttributedTitle(title, for: UIControlState())
     button.sizeToFit()
     button.addTarget(self, action: #selector(settingsButtonDidPress), for: .touchUpInside)
 
@@ -138,7 +138,7 @@ open class BarcodeScannerController: UIViewController {
         captureDevice.unlockForConfiguration()
       } catch {}
 
-        flashButton.setImage(torchMode.image, for: UIControl.State())
+      flashButton.setImage(torchMode.image, for: UIControlState())
     }
   }
 
@@ -189,7 +189,7 @@ open class BarcodeScannerController: UIViewController {
 
     [infoView, headerView, settingsButton, flashButton, focusView].forEach {
       view.addSubview($0)
-        view.bringSubviewToFront($0)
+      view.bringSubview(toFront: $0)
     }
 
     torchMode = .off
@@ -200,7 +200,7 @@ open class BarcodeScannerController: UIViewController {
 
     NotificationCenter.default.addObserver(
       self, selector: #selector(appWillEnterForeground),
-      name: UIApplication.willEnterForegroundNotification,
+      name: NSNotification.Name.UIApplicationWillEnterForeground,
       object: nil)
   }
   
@@ -372,7 +372,7 @@ open class BarcodeScannerController: UIViewController {
     flashView.alpha = 1
 
     view.addSubview(flashView)
-    view.bringSubviewToFront(flashView)
+    view.bringSubview(toFront: flashView)
 
     UIView.animate(withDuration: 0.2,
       animations: {
@@ -413,7 +413,7 @@ open class BarcodeScannerController: UIViewController {
    */
   @objc func settingsButtonDidPress() {
     DispatchQueue.main.async {
-        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+      if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
         UIApplication.shared.openURL(settingsURL)
       }
     }

@@ -24,7 +24,7 @@ class HeaderView: UIView {
   /// Close button.
   lazy var button: UIButton = {
     let button = UIButton(type: .system)
-    button.setTitle(CloseButton.text, for: UIControl.State())
+    button.setTitle(CloseButton.text, for: UIControlState())
     button.titleLabel?.font = CloseButton.font
     button.tintColor = CloseButton.color
     button.addTarget(self, action: #selector(buttonDidPress), for: .touchUpInside)

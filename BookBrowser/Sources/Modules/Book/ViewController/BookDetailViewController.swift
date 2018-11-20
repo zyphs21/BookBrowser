@@ -99,7 +99,7 @@ extension BookDetailViewController {
         tableView.register(UITableViewCell.self)
         tableView.registerHeaderFooter(BookDetailSectionHeaderView.self)
         tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorInset = .zero
         tableView.layoutMargins = .zero
         tableView.separatorStyle = .none

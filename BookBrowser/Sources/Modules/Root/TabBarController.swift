@@ -37,9 +37,9 @@ extension TabBarController {
     
     private func addViewController(_ controller: UIViewController, title: String, imageName: String) {
         let nav = BasicNavigationViewController(rootViewController: controller)
-        addChild(nav)
+        addChildViewController(nav)
         controller.tabBarItem = UITabBarItem(title: title, image: UIImage(named: imageName), tag: 1)
-        controller.tabBarItem.tag = children.count - 1
-        print(children.count - 1)
+        controller.tabBarItem.tag = childViewControllers.count - 1
+        print(childViewControllers.count - 1)
     }
 }

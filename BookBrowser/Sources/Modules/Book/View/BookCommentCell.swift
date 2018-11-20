@@ -17,7 +17,7 @@ class BookCommentCell: UITableViewCell {
     var rate: UILabel!
     var summary: UILabel!
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setUpCell()
